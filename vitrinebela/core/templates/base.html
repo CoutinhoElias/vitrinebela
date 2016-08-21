@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} Django E-comerce {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+{#	<link rel="stylesheet" href="{%  static 'materialize/css/materialize.css'  %}" media="screen" />#}
+	<link rel="stylesheet" href="{%  static 'materialize/css/materialize.min.css'  %}" media="screen" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+        nav{
+            background-color: #2c3e50;
+        }
+        .btn{
+            background-color: #2c3e50;
+        }
+
+        footer.page-footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-copyright{
+            background-color: #2c3e50;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+      }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{% url 'index' %}" class="brand-logo">Vitrine Bela</a>
+
+                <ul class="dropdown-content" id="download">
+                    <li><a href="{% url 'product_list' %}">Notebooks</a></li>
+                    <li><a href="{% url 'product_list' %}">Acessórios</a></li>
+                    <li><a href="{% url 'product_list' %}">Celulares</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="dropdown-button" href="#!" data-activates="download">
+                        Dropdown<i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+
+                    <li><a href="{% url 'contact' %}">Contato</a> </li>
+                    <li><a href="#">Minha Conta</a> </li>
+
+                </ul>
+
+{#                <a class="button-collapse" href="#" data-activate="nav-mobile">#}
+{#                    <i class="mdi-navigation-menu"></i>#}
+{#                </a>#}
+
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="container">
+         {% block container %}
+
+         {% endblock %}
+
+    {#		<footer>#}
+    {#			<div class="row">#}
+    {#			  <div class="col-lg-12">#}
+    {#			    <ul class="list-unstyled">#}
+    {#			      <li class="pull-right"><a href="#top">Voltar ao Topo</a></li>#}
+    {#			      <li><a href="{% url 'index' %}">Início</a></li>#}
+    {#			      <li><a href="{% url 'product_list' %}">Produtos</a></li>#}
+    {#			      <li><a href="{% url 'contact' %}">Contato</a></li>#}
+    {#			      <li><a href="">Termos e Privacidade</a></li>#}
+    {#			    </ul>#}
+    {#			  </div>#}
+    {#			</div>#}
+    {#		</footer>#}
+        </div>
+    </main>
+
+<footer class="page-footer">
+{#  <div class="container">#}
+{#    <div class="row">#}
+{#      <div class="col l6 s12">#}
+{#        <h5 class="white-text">Footer Content</h5>#}
+{#        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>#}
+{#      </div>#}
+{#      <div class="col l4 offset-l2 s12">#}
+{#        <h5 class="white-text">Links</h5>#}
+{#        <ul>#}
+{#          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>#}
+{#          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>#}
+{#          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>#}
+{#          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>#}
+{#        </ul>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+  <div class="footer-copyright">
+    <div class="container">
+    © 2014 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>
+{#	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>#}
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{%  static 'materialize/js/jquery.min.js'  %}"></script>
+    <script src="{%  static 'materialize/js/materialize.min.js'  %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+            $('.datepicker').pickadate();
+            $(".dropdown-button").dropdown();
+            $('.button-collapse').side-sideNav();
+        });
+    </script>
+</body>
+</html>
