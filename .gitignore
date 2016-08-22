@@ -1,1 +1,27 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/misc.xml
+.idea/modules.xml
+.idea/vitrinebela.iml
+.idea/workspace.xml
+venv/bin/gunicorn
+venv/bin/gunicorn_django
+venv/bin/gunicorn_paster
+venv/bin/static
+venv/lib/python3.5/site-packages/__pycache__/decouple.cpython-35.pyc
+venv/lib/python3.5/site-packages/__pycache__/dj_database_url.cpython-35.pyc
+venv/lib/python3.5/site-packages/__pycache__/dj_static.cpython-35.pyc
+venv/lib/python3.5/site-packages/__pycache__/static.cpython-35.pyc
+venv/lib/python3.5/site-packages/decouple.py
+venv/lib/python3.5/site-packages/dj_database_url-0.4.1.dist-info/
+venv/lib/python3.5/site-packages/dj_database_url.py
+venv/lib/python3.5/site-packages/dj_static-0.0.6.dist-info/
+venv/lib/python3.5/site-packages/dj_static.py
+venv/lib/python3.5/site-packages/gunicorn-19.4.1.dist-info/
+venv/lib/python3.5/site-packages/gunicorn/
+venv/lib/python3.5/site-packages/python_decouple-3.0.dist-info/
+venv/lib/python3.5/site-packages/static.py
+venv/lib/python3.5/site-packages/static3-0.7.0.dist-info/
+.env
+*.sqlite3
+*pyc
+__pycache__
