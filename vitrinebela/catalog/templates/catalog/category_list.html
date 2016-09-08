@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block title %}
-    Listagem de Produtos | {{ block.super }}
+    {{ current_category }} | {{ block.super }}
 {% endblock %}
 
 {% block container %}
 <div class="page-header">
-    <h1>Produtos</h1>
+    <h1>{{ current_category }}</h1>
 </div>
 
 <div>
