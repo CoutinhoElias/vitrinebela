@@ -24,7 +24,7 @@
                 {{ product.description|linebreaks }}
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
+              <a href="{{ product.get_absolute_url }}">This is a link</a>
             </div>
           </div>
         </div>

@@ -1,16 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block container %}
-    <div class="jumbotron page-header">
-      <h1>{{ title|capfirst }}</h1>
-      <p>
-          {% for item in texts %}
-          {{ item }}
-          {% if not forloop.last %}
-          ,
-          {% endif %}
-          {% endfor %}
-      </p>
+
+    <div class="jumbotron">
+        <h1>Vitrine Bela E-Commerce</h1>
+              <img src="{%  static 'img/vitrineBela.jpg'  %}" class="responsive-img">
+              <p>Vitrine Bela é uma criação de Tahoe Service</p>
+        </div>
+
+
+
       <p><a class="btn btn-primary">Saiba mais</a></p>
+
+
     </div>
+
 {% endblock %}
