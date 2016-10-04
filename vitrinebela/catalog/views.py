@@ -22,6 +22,7 @@ def category_list(request, slug):
     }
     return render(request, 'catalog/category_list.html', context)
 
+
 def product(request, slug):
     product = Product.objects.get(slug=slug)
     context = {

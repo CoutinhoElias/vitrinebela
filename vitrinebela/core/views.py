@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -8,7 +9,11 @@ def index(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    form = ContactForm()
+    context = {
+        form: form
+    }
+    return render(request, 'contact.html', context)
 
 
 # def product_list(request):
