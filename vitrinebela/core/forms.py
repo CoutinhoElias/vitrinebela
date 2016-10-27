@@ -7,6 +7,9 @@ from material import Layout
 from material import Row
 from django.core.mail import send_mail
 
+import smtplib
+from email.mime.text import MIMEText
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Nome')
@@ -23,4 +26,15 @@ class ContactForm(forms.Form):
         email = self.cleaned_data['email']
         message = self.cleaned_data['message']
         message = 'Nome: {0}\nE-Mail:{1}\n{2}'.format(name, email, message)
-        send_mail('Contato do Elias Fodão', message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_FROM_EMAIL])
+        send_mail('Contato do Elias Cabeção', message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_FROM_EMAIL])
+
+        # msg = MIMEText('Email configurado com sucesso!')
+        # msg['Subject'] = "Email enviado pelo python"
+        # msg['From']    = "ffctex@gmail.com"
+        # msg['To']      = "elias.fortaleza@alterdata.com.br"
+        #
+        # s = smtplib.SMTP('smtp.mailgun.org', 587)
+        #
+        # s.login('postmaster@vitrinebela.com.br', 'r3****f9')
+        # s.sendmail(msg['From'], msg['To'], msg.as_string())
+        # s.quit()
