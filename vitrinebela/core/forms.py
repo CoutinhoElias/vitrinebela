@@ -26,7 +26,7 @@ class ContactForm(forms.Form):
         email = self.cleaned_data['email']
         message = self.cleaned_data['message']
         message = 'Nome: {0}\nE-Mail:{1}\n{2}'.format(name, email, message)
-        send_mail('Contato do Elias Cabeção', message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_FROM_EMAIL])
+        send_mail('Contato do Elias Cabeção', message, settings.DEFAULT_FROM_EMAIL, [email])
 
         # msg = MIMEText('Email configurado com sucesso!')
         # msg['Subject'] = "Email enviado pelo python"
