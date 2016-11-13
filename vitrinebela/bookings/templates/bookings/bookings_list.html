@@ -24,101 +24,101 @@
 
   <div id='calendar'></div>
 
-
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h1>Reservas</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <a href="{% url 'booking:date' year=previous.year month=previous.month %}">« Mês anterior</a>
-      </div>
-      <div class="col-md-5 text-right">
-        <a href="{% url 'booking:date' year=next.year month=next.month %}">Próximo mês »</a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-
-        <table class="table table-bordered">
-
-          <thead>
-            <tr>
-              <th colspan="7">{{ selected_date|date:"F" }} {{ selected_date.year }}</th>
-            </tr>
-            <tr>
-              <th>Domingo</th>
-              <th>Segunda</th>
-              <th>Terça</th>
-              <th>Quarta</th>
-              <th>Quinta</th>
-              <th>Sexta</th>
-              <th>Sábado</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {% for week in calendar %}
-            <tr>
-              {% for day, booking in week %}
-              <td
-                {% if selected_date.month != day.month %}
-                class ="other"
-                {% else %}
-                id="day_{{ day.day }}"
-                {% endif %}
-              >
-                <strong>{{ day.day }}</strong>
-                <br>
-                {% if booking %}
-                {{ booking.event }}
-                {% else %}
-                &nbsp;
-                {% endif %}
-              </td>
-              {% endfor %}
-            </tr>
-            {% endfor %}
-          </tbody>
-
-        </table>
-
-        {% if request.user.is_authenticated %}
-        <h2>Faça sua reserva</h2>
-        <form action="." method="post">
-
-          <input type="hidden" name="user" id="user" value="{{ request.user.pk }}">
-
-          <div class="form-group">
-            <label for="event">Evento</label>
-            <input class="form-control" type="text" id="event" name="event">
-          </div>
-
-          <div class="form-group">
-            <label for="date">Data</label>
-            <select class="form-control" name="date" id="date">
-              {% for week in calendar %}
-              {% for day, booking in week %}
-              {% if not booking and selected_date.month == day.month %}
-              <option value="{{ day.year }}-{{ day.month }}-{{ day.day}}">{{ day }}</option>
-              {% endif %}
-              {% endfor %}
-              {% endfor %}
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Enviar</button>
-
-        </form>
-        {% endif %}
-
-
-      </div><!-- end .col-md-10 -->
-    </div><!-- end .row -->
+{##}
+{##}
+{#    <div class="row">#}
+{#      <div class="col-md-10 col-md-offset-1">#}
+{#        <h1>Reservas</h1>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="row">#}
+{#      <div class="col-md-5 col-md-offset-1">#}
+{#        <a href="{% url 'booking:date' year=previous.year month=previous.month %}">« Mês anterior</a>#}
+{#      </div>#}
+{#      <div class="col-md-5 text-right">#}
+{#        <a href="{% url 'booking:date' year=next.year month=next.month %}">Próximo mês »</a>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="row">#}
+{#      <div class="col-md-10 col-md-offset-1">#}
+{##}
+{#        <table class="table table-bordered">#}
+{##}
+{#          <thead>#}
+{#            <tr>#}
+{#              <th colspan="7">{{ selected_date|date:"F" }} {{ selected_date.year }}</th>#}
+{#            </tr>#}
+{#            <tr>#}
+{#              <th>Domingo</th>#}
+{#              <th>Segunda</th>#}
+{#              <th>Terça</th>#}
+{#              <th>Quarta</th>#}
+{#              <th>Quinta</th>#}
+{#              <th>Sexta</th>#}
+{#              <th>Sábado</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{##}
+{#          <tbody>#}
+{#            {% for week in calendar %}#}
+{#            <tr>#}
+{#              {% for day, booking in week %}#}
+{#              <td#}
+{#                {% if selected_date.month != day.month %}#}
+{#                class ="other"#}
+{#                {% else %}#}
+{#                id="day_{{ day.day }}"#}
+{#                {% endif %}#}
+{#              >#}
+{#                <strong>{{ day.day }}</strong>#}
+{#                <br>#}
+{#                {% if booking %}#}
+{#                {{ booking.event }}#}
+{#                {% else %}#}
+{#                &nbsp;#}
+{#                {% endif %}#}
+{#              </td>#}
+{#              {% endfor %}#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{##}
+{#        </table>#}
+{##}
+{#        {% if request.user.is_authenticated %}#}
+{#        <h2>Faça sua reserva</h2>#}
+{#        <form action="." method="post">#}
+{##}
+{#          <input type="hidden" name="user" id="user" value="{{ request.user.pk }}">#}
+{##}
+{#          <div class="form-group">#}
+{#            <label for="event">Evento</label>#}
+{#            <input class="form-control" type="text" id="event" name="event">#}
+{#          </div>#}
+{##}
+{#          <div class="form-group">#}
+{#            <label for="date">Data</label>#}
+{#            <select class="form-control" name="date" id="date">#}
+{#              {% for week in calendar %}#}
+{#              {% for day, booking in week %}#}
+{#              {% if not booking and selected_date.month == day.month %}#}
+{#              <option value="{{ day.year }}-{{ day.month }}-{{ day.day}}">{{ day }}</option>#}
+{#              {% endif %}#}
+{#              {% endfor %}#}
+{#              {% endfor %}#}
+{#            </select>#}
+{#          </div>#}
+{##}
+{#          <button type="submit" class="btn btn-primary">Enviar</button>#}
+{##}
+{#        </form>#}
+{#        {% endif %}#}
+{##}
+{##}
+{#      </div><!-- end .col-md-10 -->#}
+{#    </div><!-- end .row -->#}
 
     <script src="{% static 'django_csrf.js' %}"></script>
     <script src="{% static 'app.js' %}"></script>
@@ -126,103 +126,7 @@
   </body>
 </html>
 
-{##}
-{#<script>#}
-{##}
-{#$('#calendar').fullCalendar({#}
-{#    customButtons: {#}
-{#        myCustomButton: {#}
-{#            text: 'custom!',#}
-{#            click: function() {#}
-{#                alert('clicked the custom button!');#}
-{#            }#}
-{#        }#}
-{#    },#}
-{##}
-{#    buttonIcons: {#}
-{#        prev: 'left-single-arrow',#}
-{#        next: 'right-single-arrow',#}
-{#        prevYear: 'left-double-arrow',#}
-{#        nextYear: 'right-double-arrow'#}
-{#    },#}
-{##}
-{#    header: {#}
-{#        left: 'prev,next today myCustomButton',#}
-{#        center: 'title',#}
-{#        right: 'month,agendaWeek,agendaDay'#}
-{#    },#}
-{##}
-{#    dayClick: function() {#}
-{#        alert('a day has been clicked!');#}
-{#    },#}
-{##}
-{#    windowResize: function(view) {#}
-{#        alert('The calendar has adjusted to a window resize');#}
-{#    },#}
-{##}
-{#    height: 650,#}
-{##}
-{#    selectable: true,#}
-{#    selectHelper: true,#}
-{#    editable: true,#}
-{#    eventLimit: true,#}
-{#    events: '/events.json',#}
-{##}
-{#    select: function(start, end) {#}
-{#        $.getScript('/events/new', function() {});#}
-{##}
-{#        calendar.fullCalendar('unselect');#}
-{#    },#}
-{##}
-{#    eventDrop: function(event, delta, revertFunc) {#}
-{#        event_data = {#}
-{#          event: {#}
-{#            id: event.id,#}
-{#            start: event.start.format(),#}
-{#            end: event.end.format()#}
-{#          }#}
-{#        };#}
-{#        $.ajax({#}
-{#            url: event.update_url,#}
-{#            data: event_data,#}
-{#            type: 'PATCH'#}
-{#        });#}
-{#    },#}
-{##}
-{##}
-{#    defaultDate: '2016-11-10',#}
-{#    defaultView: 'agendaWeek',#}
-{#    events: [#}
-{#        {#}
-{#            start: '2014-11-10T10:00:00',#}
-{#            end: '2016-11-11T16:00:00',#}
-{#            rendering: 'background'#}
-{#        }#}
-{#    ]#}
-{##}
-{#    eventSources: [#}
-{##}
-{#        // your event source#}
-{#        {#}
-{#            url: '/myfeed.php',#}
-{#            type: 'POST',#}
-{#            data: {#}
-{#                custom_param1: 'something',#}
-{#                custom_param2: 'somethingelse'#}
-{#            },#}
-{#            error: function() {#}
-{#                alert('there was an error while fetching events!');#}
-{#            },#}
-{#            color: 'yellow',   // a non-ajax option#}
-{#            textColor: 'black' // a non-ajax option#}
-{#        }#}
-{##}
-{#        // any other sources...#}
-{##}
-{#    ]#}
-{#});#}
-{##}
-{#</script>#}
+
 
 <script>
 

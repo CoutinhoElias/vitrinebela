@@ -13,4 +13,4 @@ class BookingSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Booking
-        fields = ('user', 'event', 'date', 'created_on', 'authorized')
+        fields = ('user', 'title', 'start', 'end','created_on', 'authorized')

@@ -6,7 +6,7 @@ $('form').submit(function (e) {
     url: '/api/bookings/',
     data: {
       user: $('#user').val(),
-      date: $('#date').val(),
+      start: $('#start').val(),
       event: $('#event').val(),
     },
 
