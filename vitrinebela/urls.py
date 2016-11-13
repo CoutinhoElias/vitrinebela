@@ -25,4 +25,5 @@ urlpatterns = [
     # url(r'^produto/$', views.product, name='product'),
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
     url(r'^agendamentos/', include('vitrinebela.agendamento.urls', namespace='agendamento')),
+    url(r'^bookings/', include('vitrinebela.bookings.urls', namespace='booking')),
 ]

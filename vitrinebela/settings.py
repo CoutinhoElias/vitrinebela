@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fullcalendar',
+
 
     'vitrinebela.core',
     'vitrinebela.catalog',
     'vitrinebela.agendamento',
+
+    'rest_framework',
+    'vitrinebela.bookings.apps.BookingsConfig',
 ]
 
 MIDDLEWARE = [
