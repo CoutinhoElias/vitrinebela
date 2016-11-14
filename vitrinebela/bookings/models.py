@@ -18,4 +18,4 @@ class Booking(models.Model):
         ordering = ('-start',)
 
     def __str__(self):
-        return self.event
+        return self.title
