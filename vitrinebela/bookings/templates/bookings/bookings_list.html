@@ -18,6 +18,23 @@
     <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
     <script src="{%  static 'fullcalendar/locale/pt-br.js'  %}"></script>
 
+
+    <style>
+
+        body {
+            margin: 40px 10px;
+            padding: 0;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+    </style>
+
   </head>
   <body>
 
@@ -136,12 +153,14 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				right: 'month,agendaWeek,agendaDay,listDay,listWeek,listMonth'
 			},
 			defaultDate: new Date(),
 			navLinks: true, // can click day/week names to navigate views
 			selectable: true,
 			selectHelper: true,
+
+
 			select: function(start, end) {
 				var title = prompt('Event Title:');
 				var eventData;
@@ -155,6 +174,48 @@
 				}
 				$('#calendar').fullCalendar('unselect');
 			},
+
+
+            eventReceive: function(event){
+               var title = event.title;
+               var start = event.start.format("YYYY-MM-DD[T]HH:MM:SS");
+               $.ajax({
+                 url: '/api/bookings/',
+                 data: 'type=new&title='+title+'&startdate='+start+'&zone='+zone,
+                 type: 'POST',
+                 dataType: 'json',
+                 success: function(response){
+                   event.id = response.eventid;
+                   $('#calendar').fullCalendar('updateEvent',event);
+                 },
+                 error: function(e){
+                   console.log(e.responseText);
+                 }
+               });
+               $('#calendar').fullCalendar('updateEvent',event);
+            },
+
+{#            eventDragStop: function (event, jsEvent, ui, view) {#}
+{#               if (isElemOverDiv()) {#}
+{#                 var con = confirm('Are you sure to delete this event permanently?');#}
+{#                 if(con == true) {#}
+{#                   $.ajax({#}
+{#                     url: '/api/bookings/',#}
+{#                     data: 'type=remove&eventid='+event.id,#}
+{#                     type: 'POST',#}
+{#                     dataType: 'json',#}
+{#                     success: function(response){#}
+{#                       if(response.status == 'success')#}
+{#                         $('#calendar').fullCalendar('removeEvents');#}
+{#                         $('#calendar').fullCalendar('addEventSource', JSON.parse(json_events));#}
+{#                     },#}
+{#                     error: function(e){#}
+{#                     alert('Error processing your request: '+e.responseText);#}
+{#                     }#}
+{#                   });#}
+{#                 }#}
+{#               }#}
+{#            },#}
 
             height: 650,
 

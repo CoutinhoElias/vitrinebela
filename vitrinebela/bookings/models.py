@@ -11,6 +11,7 @@ class Booking(models.Model):
     end = models.DateField('fim')
     created_on = models.DateTimeField('solicitado em', default=timezone.now)
     authorized = models.BooleanField('autorizado', default=False)
+    color = models.CharField('cor', max_length=15)
 
     class Meta:
         verbose_name = 'reserva'
