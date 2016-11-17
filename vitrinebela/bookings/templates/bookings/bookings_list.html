@@ -162,7 +162,8 @@
 
 
 			select: function(start, end) {
-				var title = prompt('Event Title:');
+                
+				var title = prompt('Título do evento:');
 				var eventData;
 				if (title) {
 					eventData = {
@@ -176,46 +177,9 @@
 			},
 
 
-            eventReceive: function(event){
-               var title = event.title;
-               var start = event.start.format("YYYY-MM-DD[T]HH:MM:SS");
-               $.ajax({
-                 url: '/api/bookings/',
-                 data: 'type=new&title='+title+'&startdate='+start+'&zone='+zone,
-                 type: 'POST',
-                 dataType: 'json',
-                 success: function(response){
-                   event.id = response.eventid;
-                   $('#calendar').fullCalendar('updateEvent',event);
-                 },
-                 error: function(e){
-                   console.log(e.responseText);
-                 }
-               });
-               $('#calendar').fullCalendar('updateEvent',event);
-            },
 
-{#            eventDragStop: function (event, jsEvent, ui, view) {#}
-{#               if (isElemOverDiv()) {#}
-{#                 var con = confirm('Are you sure to delete this event permanently?');#}
-{#                 if(con == true) {#}
-{#                   $.ajax({#}
-{#                     url: '/api/bookings/',#}
-{#                     data: 'type=remove&eventid='+event.id,#}
-{#                     type: 'POST',#}
-{#                     dataType: 'json',#}
-{#                     success: function(response){#}
-{#                       if(response.status == 'success')#}
-{#                         $('#calendar').fullCalendar('removeEvents');#}
-{#                         $('#calendar').fullCalendar('addEventSource', JSON.parse(json_events));#}
-{#                     },#}
-{#                     error: function(e){#}
-{#                     alert('Error processing your request: '+e.responseText);#}
-{#                     }#}
-{#                   });#}
-{#                 }#}
-{#               }#}
-{#            },#}
+
+
 
             height: 650,
 
@@ -281,6 +245,8 @@
 {#			]#}
 		});
 
+
 	});
+
 
 </script>

@@ -20,8 +20,8 @@ from rest_framework import routers
 from vitrinebela.bookings.views import BookingViewSet
 from vitrinebela.core import views
 
-router = routers.DefaultRouter()
-router.register(r'bookings', BookingViewSet)
+# router = routers.DefaultRouter()
+# router.register(r'bookings', BookingViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,8 +31,9 @@ urlpatterns = [
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
     url(r'^agendamentos/', include('vitrinebela.agendamento.urls', namespace='agendamento')),
 
-    url(r'^api/', include(router.urls, namespace='api')),
-    url(r'^auth/', include('rest_framework.urls', namespace='auth')),
+    # url(r'^api/', include(router.urls, namespace='api')),
+    # url(r'^auth/', include('rest_framework.urls', namespace='auth')),
 
     url(r'^bookings/', include('vitrinebela.bookings.urls', namespace='booking')),
+    url(r'^api/bookings/', include('vitrinebela.bookings.api.urls', namespace='booking-api')),
 ]
