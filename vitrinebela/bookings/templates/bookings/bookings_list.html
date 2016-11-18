@@ -168,11 +168,26 @@
 				if (title) {
 					eventData = {
 						title: title,
-						date_start: start,
-						date_end: end
+						date_start: start.format(),
+            date_end: end.format(),
+            all_day: true,
+            color: '#efefef'
 					};
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+					// $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+          $.ajax({
+            type: "POST",
+            url: '/api/bookings/create/',
+            data: {
+              user: '1',
+              title: title,
+              start: start.format(),
+              end: end.format(),
+              all_day: true,
+              color: '#ff00ff'
+            }
+          });
 				}
+        console.log(eventData);
 				$('#calendar').fullCalendar('unselect');
 			},
 
