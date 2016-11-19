@@ -185,6 +185,48 @@
 				}
 				$('#calendar').fullCalendar('unselect');
 			},
+
+            eventDrop: function(event, delta) {
+                $.ajax({
+                        type: "PUT",
+                        url: '/api/bookings/' + event.id +'/edit/',
+                        data: {
+
+                              user: '1',
+                              title: event.title,
+                              start: event.start.format(),
+                              end: event.end.format(),
+                              all_day: true,
+                              color: '#ff00ff'
+                        },
+                    success: function(json) {
+                        alert("OK");
+                    }
+                });
+            },
+
+            eventResize: function(event) {
+                $.ajax({
+                        type: "PUT",
+                        url: '/api/bookings/' + event.id +'/edit/',
+                        data: {
+
+                              user: '1',
+                              title: event.title,
+                              start: event.start.format(),
+                              end: event.end.format(),
+                              all_day: true,
+                              color: '#ff00ff'
+                        },
+                    success: function(json) {
+                        alert("OK");
+                    }
+                });
+
+            },
+
+
+
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: '/api/bookings/'
