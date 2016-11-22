@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     'vitrinebela.core',
     'vitrinebela.catalog',
-    'vitrinebela.agendamento',
 
     'rest_framework',
     'vitrinebela.bookings.apps.BookingsConfig',

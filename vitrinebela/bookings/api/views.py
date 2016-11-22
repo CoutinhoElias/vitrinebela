@@ -1,9 +1,9 @@
-from rest_framework.generics import (ListAPIView,
-                                     RetrieveAPIView,
+from rest_framework.generics import (
                                      DestroyAPIView,
+                                     ListAPIView,
                                      UpdateAPIView,
+                                     RetrieveAPIView,
                                      CreateAPIView)
-
 from vitrinebela.bookings.models import Booking
 from .serializers import (BookingListSerializer,
                           BookingDetailSerializer,

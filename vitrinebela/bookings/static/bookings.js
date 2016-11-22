@@ -1,7 +1,7 @@
 /**
  * Created by eliaspai on 18/11/16.
  */
-	$(document).ready(function() {
+    $(document).ready(function() {
 
 		$('#calendar').fullCalendar({
 			header: {
@@ -13,87 +13,80 @@
 			navLinks: true, // can click day/week names to navigate views
 			selectable: true,
 			selectHelper: true,
-
-
 			select: function(start, end) {
-
-				var title = prompt('Título do evento:');
+				var title = prompt('Event Title:');
 				var eventData;
 				if (title) {
 					eventData = {
-
 						title: title,
-						date_start: start.format(),
-                        date_end: end.format(),
-                        all_day: true,
+						start: start.format('YYYY-MM-DD HH:mm:ss'),
+						end: end.format('YYYY-MM-DD HH:mm:ss'),
                         color: '#ff00ff'
 					};
-					// $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+
                       $.ajax({
                         type: "POST",
                         url: '/api/bookings/create/',
                         data: {
                           user: '1',
                           title: title,
-                          start: start.format(),
-                          end: end.format(),
+                          start: start.format('YYYY-MM-DD HH:mm:ss'),
+                          end: end.format('YYYY-MM-DD HH:mm:ss'),
                           all_day: true,
                           color: '#ff00ff'
                         }
                       });
 				}
-                console.log(eventData);
 				$('#calendar').fullCalendar('unselect');
 			},
 
-            eventDrop: function(event, delta, revertFunc) {
 
-                alert(event.title + " was dropped on " + event.start.format() + " e o id=" + event.id);
 
-                if (!confirm("Are you sure about this change?")) {
-                    revertFunc();
-                        eventData = {
-                            id: event.id,
-                            title: title,
-                            date_start: start.format(),
-                            date_end: end.format(),
-                            all_day: true,
-                            color: '#ff00ff'
-					};
-					// $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                      $.ajax({
-                        type: "POST",
-                        url: '/api/bookings/update/',
+            eventDrop: function(event, delta) {
+                $.ajax({
+                        type: "PUT",
+                        url: '/api/bookings/' + event.id +'/edit/',
                         data: {
-                          id: event.id,
-                          user: '1',
-                          title: title,
-                          start: start.format(),
-                          end: end.format(),
-                          all_day: true,
-                          color: '#ff00ff'
-                        }
 
+                              user: '1',
+                              title: event.title,
+                              start: event.start.format(),
+                              end: event.end.format(),
+                              all_day: true,
+                              color: '#ff00ff'
+                        },
+                    success: function(json) {
+                        alert(event.title + " foi modificado para data " + event.start.format('L'));
+                    }
+                });
+            },
 
-                      });
+            eventResize: function(event) {
+                $.ajax({
+                        type: "PUT",
+                        url: '/api/bookings/' + event.id +'/edit/',
+                        data: {
 
-                }
+                              user: '1',
+                              title: event.title,
+                              start: event.start.format(),
+                              end: event.end.format(),
+                              all_day: true,
+                              color: '#ff00ff'
+                        },
+                    success: function(json) {
+                        alert(event.title + " foi modificado para data " + event.start.format('L'));
+                    }
+                });
 
             },
 
 
-
-
-
-
-            height: 650,
 
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: '/api/bookings/'
 		});
 
-
 	});
-
-

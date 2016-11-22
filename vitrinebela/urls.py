@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^contato/$', views.contact, name='contact'),
     # url(r'^produto/$', views.product, name='product'),
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
-    url(r'^agendamentos/', include('vitrinebela.agendamento.urls', namespace='agendamento')),
+    #url(r'^agendamentos/', include('vitrinebela.agendamento.urls', namespace='agendamento')),
 
     # url(r'^api/', include(router.urls, namespace='api')),
     # url(r'^auth/', include('rest_framework.urls', namespace='auth')),

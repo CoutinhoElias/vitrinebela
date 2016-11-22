@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import serializers
+#from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from vitrinebela.bookings.models import Booking
@@ -7,10 +7,10 @@ from vitrinebela.bookings.models import Booking
 
 class BookingCreateUpdateSerializer(ModelSerializer):
 
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=False,
-        queryset=User.objects.all()
-    )
+    # user = serializers.PrimaryKeyRelatedField(
+    #     read_only=False,
+    #     queryset=User.objects.all()
+    # )
 
     class Meta:
         model = Booking
@@ -26,10 +26,10 @@ class BookingCreateUpdateSerializer(ModelSerializer):
 
 class BookingListSerializer(ModelSerializer):
 
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=False,
-        queryset=User.objects.all()
-    )
+    # user = serializers.PrimaryKeyRelatedField(
+    #     read_only=False,
+    #     queryset=User.objects.all()
+    # )
 
     class Meta:
         model = Booking
@@ -45,10 +45,10 @@ class BookingListSerializer(ModelSerializer):
 
 class BookingDetailSerializer(ModelSerializer):
 
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=False,
-        queryset=User.objects.all()
-    )
+    # user = serializers.PrimaryKeyRelatedField(
+    #     read_only=False,
+    #     queryset=User.objects.all()
+    # )
 
     class Meta:
         model = Booking
