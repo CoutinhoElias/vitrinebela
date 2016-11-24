@@ -13,7 +13,6 @@
     <script src="{%  static 'fullcalendar/lib/moment.min.js'  %}"></script>
     <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
     <script src="{%  static 'fullcalendar/locale/pt-br.js'  %}"></script>
-    <link rel='stylesheet' href="{%  static 'fullcalendar/_materialFullCalendar.css'%}" />
 
 
     <style>
@@ -40,7 +39,7 @@
 
     <script src="{% static 'django_csrf.js' %}"></script>
     <script src="{% static 'app.js' %}"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   </body>
 </html>
@@ -65,15 +64,6 @@
 			selectHelper: true,
             locale: 'pt-br',
 
-            handleWindowResize: true,
-            weekends: false, // Hide weekends
-
-
-            minTime: '07:30:00', // Start time for the calendar
-            maxTime: '22:00:00', // End time for the calendar
-
-            displayEventTime: true, // Display event time
-
         {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
         {# ENVIANDO DADOS PARA O MODAL BOOTSTRAP#}
             eventClick:  function(event, jsEvent, view) {
@@ -88,15 +78,14 @@
         {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
 
 			select: function(start, end) {
-				var title = prompt('Nome do evento:');
-                var color = prompt('Agoraa cor do evento:');
+				var title = prompt('Event Title:');
 				var eventData;
 				if (title) {
 					eventData = {
 						title: title,
 						start: start.format('YYYY-MM-DD HH:mm:ss'),
 						end: end.format('YYYY-MM-DD HH:mm:ss'),
-                        color: color
+                        color: '#ff00ff'
 					};
 					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 
@@ -109,7 +98,7 @@
                           start: start.format('YYYY-MM-DD HH:mm:ss'),
                           end: end.format('YYYY-MM-DD HH:mm:ss'),
                           all_day: true,
-                          color: color
+                          color: '#ff00ff'
                         }
                       });
 				}
@@ -129,7 +118,7 @@
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: event.color
+                              color: '#ff00ff'
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
@@ -148,7 +137,7 @@
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: event.color
+                              color: '#ff00ff'
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
