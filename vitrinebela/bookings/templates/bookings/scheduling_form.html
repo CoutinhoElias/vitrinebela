@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}
+    {{ scheduling }} | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+{%  if success %}
+    <div class="alert-success">
+        Mensagem enviada com sucesso!
+    </div>
+{% endif %}
+
+    <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
+        <div class="card-content">
+            {% form %}
+
+{#                {% part form.name prefix %}<i class="material-icons prefix">person</i>{% endpart %}#}
+{#                {% part form.email prefix %}<label for="id_email"></label><i class="material-icons prefix">email</i>{% endpart %}#}
+{#                {% part form.message prefix %}<i class="material-icons prefix">mode_edit</i>{% endpart %}#}
+
+            {% endform %}
+        </div>
+
+        <div class="card-action">
+            <div class="right-align">
+                <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}

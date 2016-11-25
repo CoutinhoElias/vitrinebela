@@ -5,13 +5,20 @@ from django.utils import timezone
 
 class Booking(models.Model):
 
+    CORES_CHOICES = (
+        ('red', 'red'),
+        ('blue', 'blue'),
+        ('green', 'green'),
+        ('black', 'black'),
+    )
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='usuário')
     title = models.CharField('evento', max_length=128)
     start = models.DateTimeField('inicio')
     end = models.DateTimeField('fim')
     created_on = models.DateTimeField('solicitado em', default=timezone.now)
     authorized = models.BooleanField('autorizado', default=False)
-    color = models.CharField('cor', max_length=15)
+    color = models.CharField('cor', max_length=15, choices=CORES_CHOICES, default='blue')
 
     class Meta:
         verbose_name = 'reserva'

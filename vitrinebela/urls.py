@@ -27,13 +27,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contato/$', views.contact, name='contact'),
-    # url(r'^produto/$', views.product, name='product'),
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
-    #url(r'^agendamentos/', include('vitrinebela.agendamento.urls', namespace='agendamento')),
+
 
     # url(r'^api/', include(router.urls, namespace='api')),
     # url(r'^auth/', include('rest_framework.urls', namespace='auth')),
 
-    url(r'^bookings/', include('vitrinebela.bookings.urls', namespace='booking')),
+    url(r'^reserva/', include('vitrinebela.bookings.urls', namespace='booking')),
     url(r'^api/bookings/', include('vitrinebela.bookings.api.urls', namespace='booking-api')),
 ]
