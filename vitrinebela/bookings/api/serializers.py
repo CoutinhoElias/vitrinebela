@@ -16,12 +16,15 @@ class BookingCreateUpdateSerializer(ModelSerializer):
         model = Booking
         fields = ('id',
                   'user',
+                  'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color')
+                  'color',
+                  'editable',
+                  'backgroundColor')
 
 
 class BookingListSerializer(ModelSerializer):
@@ -35,12 +38,15 @@ class BookingListSerializer(ModelSerializer):
         model = Booking
         fields = ('id',
                   'user',
+                  'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color')
+                  'color',
+                  'editable',
+                  'backgroundColor')
 
 
 class BookingDetailSerializer(ModelSerializer):
@@ -54,9 +60,12 @@ class BookingDetailSerializer(ModelSerializer):
         model = Booking
         fields = ('id',
                   'user',
+                  'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color')
+                  'color',
+                  'editable',
+                  'backgroundColor')
