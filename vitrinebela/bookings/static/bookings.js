@@ -1,6 +1,3 @@
-/**
- * Created by eliaspai on 18/11/16.
- */
     $(document).ready(function() {
 
 		$('#calendar').fullCalendar({
@@ -13,15 +10,40 @@
 			navLinks: true, // can click day/week names to navigate views
 			selectable: true,
 			selectHelper: true,
+            locale: 'pt-br',
+
+            handleWindowResize: true,
+            weekends: false, // Hide weekends
+
+
+            minTime: '07:30:00', // Start time for the calendar
+            maxTime: '22:00:00', // End time for the calendar
+
+            displayEventTime: true, // Display event time
+
+        // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
+        // {# ENVIANDO DADOS PARA O MODAL BOOTSTRAP#}
+            eventClick:  function(event, jsEvent, view) {
+                $("#modal-titleInput").val(event.title);
+                $("#modal-startInput").val(event.start.format());
+                $("#modal-endInput").val(event.end.format('DD-MM-YYYY HH:mm:ss'));
+                $("#modal-colorInput").val(event.color);
+                $("#modalTitle").html(event.title);
+                $('#fullCalModal').modal();
+                return false;
+            },
+        // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
+
 			select: function(start, end) {
-				var title = prompt('Event Title:');
+				var title = prompt('Nome do evento:');
+                var color = prompt('Agoraa cor do evento:');
 				var eventData;
 				if (title) {
 					eventData = {
 						title: title,
 						start: start.format('YYYY-MM-DD HH:mm:ss'),
 						end: end.format('YYYY-MM-DD HH:mm:ss'),
-                        color: '#ff00ff'
+                        color: color
 					};
 					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 
@@ -29,12 +51,12 @@
                         type: "POST",
                         url: '/api/bookings/create/',
                         data: {
-                          user: '1',
+                          user: 2,
                           title: title,
                           start: start.format('YYYY-MM-DD HH:mm:ss'),
                           end: end.format('YYYY-MM-DD HH:mm:ss'),
                           all_day: true,
-                          color: '#ff00ff'
+                          color: color
                         }
                       });
 				}
@@ -49,12 +71,12 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: '1',
+                              user: 2,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: '#ff00ff'
+                              color: event.color
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
@@ -68,12 +90,12 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: '1',
+                              user: 2,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: '#ff00ff'
+                              color: event.color
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
@@ -88,5 +110,24 @@
 			eventLimit: true, // allow "more" link when too many events
 			events: '/api/bookings/'
 		});
+
+
+
+//         {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
+// {#        CHAMADA DO MODAL PASSANDO OS VALORES DE EVENT#}
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-title').text('New message to ' + event.start)
+          modal.find('.modal-titleInput').text(event.title)
+          modal.find('.modal-startInput').text(event.start)
+          modal.find('.modal-endInput').text(event.end)
+          modal.find('.modal-colorInput').text(event.color)
+          modal.find('.modal-body input').val(event.start)
+        })
+        // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
 
 	});

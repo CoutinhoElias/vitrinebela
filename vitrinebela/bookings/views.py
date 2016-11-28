@@ -1,5 +1,7 @@
 from datetime import date
 
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
@@ -8,11 +10,55 @@ from vitrinebela.bookings.models import Booking
 from vitrinebela.bookings.serializer import BookingSerializer
 
 
+def scheduling1(request):
+    if request.method=='POST':
+        form = BookingsForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/reserva/agendamento/')
+        else:
+            return HttpResponse()
+    else:
+        context = {
+            'form': BookingsForm(initial={'user': request.user})
+        }
+        return render(request, 'bookings/scheduling_form.html', context)
+
+
+
 def scheduling(request):
-    context = {
-        'form': BookingsForm(initial={'user': request.user})
-    }
-    return render(request, 'bookings/scheduling_form.html', context)
+    if request.method == 'POST':
+        form = BookingsForm(request.POST)
+
+        if not form.is_valid():
+            return render(request, 'bookings/scheduling_form.html', {'form':form})
+
+        user = form.cleaned_data.get('user')
+        allday = form.cleaned_data.get('allday')
+        title = form.cleaned_data.get('title')
+        start = form.cleaned_data.get('start')
+        end = form.cleaned_data.get('end')
+        authorized = form.cleaned_data.get('authorized')
+        created_on = form.cleaned_data.get('created_on')
+        editable = form.cleaned_data.get('editable')
+        color = form.cleaned_data.get('color')
+        backgroundColor = form.cleaned_data.get('backgroundColor')
+
+        Booking.objects.create(user=user,
+                               allday=allday,
+                               title=title,
+                               start=start,
+                               end=end,
+                               authorized=authorized,
+                               created_on=created_on,
+                               editable=editable,
+                               color=color,
+                               backgroundColor=backgroundColor)
+
+
+        return HttpResponseRedirect('/reserva/listagem/')
+    else:
+        return render(request, 'bookings/scheduling_form.html', {'form':BookingsForm(initial={'pessoa': request.user.id})})
+
 
 class BookingViewSet(ModelViewSet):
     queryset = Booking.objects.all()
