@@ -10,7 +10,8 @@ class Booking(models.Model):
         ('red', 'red'),
         ('blue', 'blue'),
         ('green', 'green'),
-        ('black', 'black'),
+        ('black', 'black')
+        ('yellow', 'yellow'),
     )
 
     user = models.ForeignKey(User)
