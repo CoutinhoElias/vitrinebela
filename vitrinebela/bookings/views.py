@@ -10,21 +10,6 @@ from vitrinebela.bookings.models import Booking
 from vitrinebela.bookings.serializer import BookingSerializer
 
 
-def scheduling1(request):
-    if request.method=='POST':
-        form = BookingsForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('/reserva/agendamento/')
-        else:
-            return HttpResponse()
-    else:
-        context = {
-            'form': BookingsForm(initial={'user': request.user})
-        }
-        return render(request, 'bookings/scheduling_form.html', context)
-
-
-
 def scheduling(request):
     if request.method == 'POST':
         form = BookingsForm(request.POST)
