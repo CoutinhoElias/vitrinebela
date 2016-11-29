@@ -71,7 +71,7 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: 2,
+                              user: event.user,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
@@ -90,7 +90,7 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: 2,
+                              user: event.user,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
