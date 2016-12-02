@@ -7,7 +7,7 @@ from rest_framework.generics import (
 from vitrinebela.bookings.models import Booking
 from .serializers import (BookingListSerializer,
                           BookingDetailSerializer,
-                          BookingCreateUpdateSerializer)
+                          BookingCreateUpdateSerializer, BookingListFeriadoSerializer)
 
 
 class PostCreateAPIView(CreateAPIView):
@@ -35,6 +35,10 @@ class PostDeleteAPIView(DestroyAPIView):
 class PostListAPIView(ListAPIView):
     queryset = Booking.objects.all()
     serializer_class = BookingListSerializer
+
+class PostListFeriadoAPIView(ListAPIView):
+    queryset = Booking.objects.filter(feriado=True)
+    serializer_class = BookingListFeriadoSerializer
 
 
 # def eliminaEventos(request):

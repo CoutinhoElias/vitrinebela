@@ -10,9 +10,9 @@ from vitrinebela.bookings.models import Booking
 from vitrinebela.bookings.serializer import BookingSerializer
 
 
-def scheduling(request):
+def scheduling2(request):
     if request.method == 'POST':
-        form = BookingsForm(request.POST)
+        form = BookingsForm(request.POST, request.FILES)
 
         if not form.is_valid():
             return render(request, 'bookings/scheduling_form.html', {'form':form})
@@ -27,6 +27,8 @@ def scheduling(request):
         editable = form.cleaned_data.get('editable')
         color = form.cleaned_data.get('color')
         backgroundColor = form.cleaned_data.get('backgroundColor')
+        feriado = form.cleaned_data.get('feriado')
+        participants = form.cleaned_data.get('participants')
 
         Booking.objects.create(user=user,
                                allday=allday,
@@ -37,12 +39,28 @@ def scheduling(request):
                                created_on=created_on,
                                editable=editable,
                                color=color,
-                               backgroundColor=backgroundColor)
+                               backgroundColor=backgroundColor,
+                               feriado=feriado,
+                               participants=participants)
+        form.save_m2m()
 
 
         return HttpResponseRedirect('/reserva/listagem/')
     else:
         return render(request, 'bookings/scheduling_form.html', {'form':BookingsForm(initial={'pessoa': request.user.id})})
+
+
+def scheduling(request):
+    if request.method == 'POST':
+        form = BookingsForm(request.POST)
+
+        if form.is_valid():
+            return HttpResponseRedirect('/reserva/listagem/')
+        else:
+            return render(request, 'bookings/scheduling_form.html', {'form':form})
+    else:
+        context = {'form':BookingsForm(initial={'pessoa': request.user.id})}
+        return render(request, 'bookings/scheduling_form.html', context)
 
 
 class BookingViewSet(ModelViewSet):
@@ -56,7 +74,7 @@ def list(request):
 
 
 def list_date(request):
-    return render(request, 'bookings/bookings_list.html') #def list_date(request, year, month):
+    return render(request, 'bookings/bookings_list_fake.html') #def list_date(request, year, month):
 
 
 # def _calendar(selected_date):

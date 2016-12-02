@@ -15,14 +15,14 @@ from material import Span4
 
 class BookingsForm(forms.Form):
     user = forms.ModelChoiceField(label="Pessoa",queryset=User.objects.all(),)
-    allday = forms.BooleanField(label='Dia inteiro')
+    allday = forms.BooleanField(label='Dia inteiro', required=False)
     # description = "DateField options"
     title = forms.CharField(label='Titulo do agendamento')
     start = forms.DateTimeField(label='Inicia em...')
     end = forms.DateTimeField(label='Termina em...')
     created_on = forms.DateTimeField(label='Criado em...')
-    authorized = forms.BooleanField(label='Autorizado')
-    editable = forms.BooleanField(label='Editavel')
+    authorized = forms.BooleanField(label='Autorizado', required=False)
+    editable = forms.BooleanField(label='Editavel', required=False)
     color = forms.ChoiceField(label='Cor', choices=(('red', 'red'),
                                        ('blue', 'blue'),
                                        ('green', 'green'),
@@ -31,13 +31,16 @@ class BookingsForm(forms.Form):
                                        ('blue', 'blue'),
                                        ('green', 'green'),
                                        ('black', 'black')))
+    feriado = forms.BooleanField(label='Feriado?', required=False)
+    participants = forms.ModelMultipleChoiceField(queryset=User.objects.all())
 
     layout = Layout(
         Fieldset("Inclua uma agenda",
                  Row('user','title'),
                  Row('start','end', 'created_on'),
                  Row(Span6('color'), Span6('backgroundColor')),
-                 Row(Span4('authorized'), Span4('editable'), Span4('allday'))
+                 Row(Span3('feriado'),Span3('authorized'), Span3('editable'), Span3('allday')),
+                 Row('participants')
                  )
     )
 

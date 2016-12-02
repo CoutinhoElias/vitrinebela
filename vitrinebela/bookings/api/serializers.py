@@ -48,6 +48,18 @@ class BookingListSerializer(ModelSerializer):
                   'editable',
                   'backgroundColor')
 
+class BookingListFeriadoSerializer(ModelSerializer):
+
+    # user = serializers.PrimaryKeyRelatedField(
+    #     read_only=False,
+    #     queryset=User.objects.all()
+    # )
+
+    class Meta:
+        model = Booking
+        fields = ('start',
+                  'id')
+
 
 class BookingDetailSerializer(ModelSerializer):
 
