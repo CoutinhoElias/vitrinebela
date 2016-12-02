@@ -55,6 +55,8 @@ def scheduling(request):
         form = BookingsForm(request.POST)
 
         if form.is_valid():
+            form.save()
+            form.save_m2m()
             return HttpResponseRedirect('/reserva/listagem/')
         else:
             return render(request, 'bookings/scheduling_form.html', {'form':form})
