@@ -55,6 +55,10 @@ def scheduling(request):
         form = BookingsForm(request.POST)
 
         if form.is_valid():
+            new = form.save(commit=False)
+            new.save()
+            form.save_m2m()
+
             return HttpResponseRedirect('/reserva/listagem/')
         else:
             return render(request, 'bookings/scheduling_form.html', {'form':form})
@@ -74,7 +78,7 @@ def list(request):
 
 
 def list_date(request):
-    return render(request, 'bookings/bookings_list_fake.html') #def list_date(request, year, month):
+    return render(request, 'bookings/bookings_list.html') #def list_date(request, year, month):
 
 
 # def _calendar(selected_date):

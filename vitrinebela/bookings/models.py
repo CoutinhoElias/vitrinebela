@@ -24,7 +24,7 @@ class Booking(models.Model):
     editable = models.BooleanField('Editavel', default=True)
     color = models.CharField('cor', max_length=15, choices=CORES_CHOICES, default='blue')
     backgroundColor = models.CharField('Cor de Fundo', max_length=15, choices=CORES_CHOICES, default='blue')
-    overlap = models.BooleanField('Descartavel', default=True)
+    overlap = models.BooleanField('Descartavel', default=False)
     feriado = models.BooleanField('Feriado')
     participants = models.ManyToManyField(User, related_name="item_participantes")
     #overlap: false, Áreas vermelhas onde nenhum evento pode ser descartado (Período que não pode receber nenhum agendamento)

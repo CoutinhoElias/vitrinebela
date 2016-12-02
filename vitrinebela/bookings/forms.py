@@ -11,9 +11,10 @@ from material import Span6
 from material import Span8
 from material import Span4
 
+from vitrinebela.bookings.models import Booking
 
 
-class BookingsForm(forms.Form):
+class BookingsForm(forms.ModelForm):
     user = forms.ModelChoiceField(label="Pessoa",queryset=User.objects.all(),)
     allday = forms.BooleanField(label='Dia inteiro', required=False)
     # description = "DateField options"
@@ -33,6 +34,11 @@ class BookingsForm(forms.Form):
                                        ('black', 'black')))
     feriado = forms.BooleanField(label='Feriado?', required=False)
     participants = forms.ModelMultipleChoiceField(queryset=User.objects.all())
+
+    class Meta:
+        model = Booking
+        fields = '__all__'
+
 
     layout = Layout(
         Fieldset("Inclua uma agenda",
