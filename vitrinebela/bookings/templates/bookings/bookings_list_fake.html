@@ -135,8 +135,13 @@
 
 		});
 
+        $.ajax({
+          method: "GET",
+          url: "test.js",
+          dataType: "script"
+        });
 
-      var days = {'2016-09-04': 1,'2016-09-11': 2,'2016-09-18': 3,'2016-09-13': 4};
+        var days = {'2016-09-04': 1,'2016-09-11': 2,'2016-09-18': 3,'2016-09-13': 4};
           $("td, th").each(function(){
             if(days[$(this).attr("data-date")]){
               $(this).css("background-color","red");

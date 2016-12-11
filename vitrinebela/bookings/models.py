@@ -12,7 +12,7 @@ class Booking(models.Model):
         ('green', 'green'),
         ('black', 'black'),
         ('yellow', 'yellow')
-    )
+    ) #CHOICES NO MODELS VAI TER UMALISTAGEM NO ADMIN
 
     user = models.ForeignKey(User)
     allday = models.BooleanField('Dia inteiro', default=False)

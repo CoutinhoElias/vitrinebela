@@ -24,16 +24,17 @@ class BookingsForm(forms.ModelForm):
     created_on = forms.DateTimeField(label='Criado em...')
     authorized = forms.BooleanField(label='Autorizado', required=False)
     editable = forms.BooleanField(label='Editavel', required=False)
-    color = forms.ChoiceField(label='Cor', choices=(('red', 'red'),
-                                       ('blue', 'blue'),
-                                       ('green', 'green'),
-                                       ('black', 'black')))
-    backgroundColor = forms.ChoiceField(label='Cor de fundo.', choices=(('red', 'red'),
-                                       ('blue', 'blue'),
-                                       ('green', 'green'),
-                                       ('black', 'black')))
+    # ABAIXO, CHOICES NO FORMS VAI TER UMALISTAGEM NO TEMPLATE
+    color = forms.ChoiceField(label='Cor', choices=(('blue', 'blue'),
+                                                    ('red', 'red'),
+                                                    ('green', 'green'),
+                                                    ('black', 'black')))
+    backgroundColor = forms.ChoiceField(label='Cor de fundo.', choices=(('blue', 'blue'),
+                                                                        ('red', 'red'),
+                                                                        ('green', 'green'),
+                                                                        ('black', 'black')))
     feriado = forms.BooleanField(label='Feriado?', required=False)
-    participants = forms.ModelMultipleChoiceField(queryset=User.objects.all())
+    participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all())
 
     class Meta:
         model = Booking
@@ -59,3 +60,8 @@ class BookingsForm(forms.ModelForm):
 #  '%m/%d/%y %H:%M:%S',    # '10/25/06 14:30:59'
 #  '%m/%d/%y %H:%M',       # '10/25/06 14:30'
 #  '%m/%d/%y']             # '10/25/06'
+
+#COR DO BOTAO INLINE
+# .grey.lighten-4 {
+#     background-color: #786ec7 !important;
+# }
