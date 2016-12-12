@@ -118,18 +118,13 @@
 
 
             $.each(data, function(index, value){
-                //alert("Start: "+value.start+" Id: "+value.id);
 
-                //days[index] = value.start + ': '+ index+' '
-                alert(value.start.substr(0, 10))
+                //alert(value.start.substr(0, 10))
                 days.push(value.start.substr(0, 10))
 
             });
 
 
-            //alert(days)
-
-            //var days1 = {'2016-12-01': 0,'2016-12-02': 1,'2016-12-03': 2,'2016-12-04': 3};
             $("td, th").each(function(){
                 if(days.indexOf(this.dataset.date) >= 0){
                   $(this).css("background-color","red");
@@ -139,9 +134,7 @@
         });
 
 
-
-
-        });
+});
 
 
 
