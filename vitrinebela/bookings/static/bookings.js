@@ -120,76 +120,28 @@
             $.each(data, function(index, value){
                 //alert("Start: "+value.start+" Id: "+value.id);
 
-                feriado[index] = value.start + ': '+ index+' '
+                //days[index] = value.start + ': '+ index+' '
+                alert(value.start.substr(0, 10))
+                days.push(value.start.substr(0, 10))
 
             });
 
 
-            alert(days)
+            //alert(days)
 
             //var days1 = {'2016-12-01': 0,'2016-12-02': 1,'2016-12-03': 2,'2016-12-04': 3};
             $("td, th").each(function(){
-                if(days[$(this).attr("data-date")]){
+                if(days.indexOf(this.dataset.date) >= 0){
                   $(this).css("background-color","red");
                 }
             });
 
         });
 
-        alert(days)
-
 
 
 
         });
-
-
-                                    // var json = [
-                                    //   {
-                                    //     "itemId": "1",
-                                    //     "prodTitle": "inicia aqui",
-                                    //   },
-                                    //   {
-                                    //     "itemId": "2",
-                                    //     "prodTitle": "o meio aqui",
-                                    //   },
-                                    //   {
-                                    //     "itemId": "",
-                                    //     "prodTitle": "",
-                                    //   }
-                                    //
-                                    // ];
-                                    //
-                                    // var tempArray = json.filter(function (item) {
-                                    //     return (isDefined(item.itemId) && isDefined(item.prodTitle));
-                                    // });
-                                    //
-                                    // function isDefined (o) {
-                                    //     return o !== undefined && o !== null && o !== '';
-                                    // }
-                                    //
-                                    // console.log(tempArray);
-            //
-            // var days = {'2016-12-04': 0,'2016-12-11': 1,'2016-12-18': 2,'2016-12-13': 3};
-            //   $("td, th").each(function(){
-            //     if(days[$(this).attr("data-date")]){
-            //       $(this).css("background-color","red");
-            //     }
-            //   });
-
-            // AJAX GET
-
-
-                // $.ajax({
-                //     type: "GET",
-                //     url: "/api/bookings/feriado/",
-                //     success: function(data) {
-                //     for(i = 0; i < data.length; i++){
-                //         console.log(data[i]);
-                //     }
-                // }
-                // });
-
 
 
 
