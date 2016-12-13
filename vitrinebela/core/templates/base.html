@@ -13,8 +13,6 @@
 {#    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" rel="stylesheet">#}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
     <link href="{% static 'material/css/materialize.css' %}" rel="stylesheet">
     <link href="{% static 'material/css/jquery.datetimepicker.css' %}" rel="stylesheet">
     <link href="{% static 'material/css/materialize.forms.css' %}" rel="stylesheet">
@@ -70,25 +68,37 @@
             <div class="nav-wrapper">
                 <a href="{% url 'index' %}" class="brand-logo">Vitrine Bela</a>
 
-                <ul class="dropdown-content" id="download">
-                    {% for category in categories %}
-                        <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
-                    {% endfor %}
-                </ul>
+{#                    DROPDOWN DE CATEGORIAS#}
+                    <ul class="dropdown-content" id="download">
+                        {% for category in categories %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+                        {% endfor %}
+                    </ul>
 
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a class="dropdown-button" href="#!" data-activates="download">
-                        Categorias<i class="material-icons right">arrow_drop_down</i></a>
-                    </li>
+{#                    DROPDOWN DE RESERVA#}
+                    <ul class="dropdown-content" id="reserva">
 
-                    <li><a href="{% url 'contact' %}">Contato</a> </li>
-                    <li><a href="#">Minha Conta</a> </li>
+                            <li><a href="{% url "booking:scheduling" %}">Agendamento</a></li>
+                            <li><a href="{% url "booking:list" %}">Listagem</a></li>
 
-                </ul>
+                    </ul>
 
-{#                <a class="button-collapse" href="#" data-activate="nav-mobile">#}
-{#                    <i class="mdi-navigation-menu"></i>#}
-{#                </a>#}
+{#                    ITENS DA NAVBAR#}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="dropdown-button" href="#!" data-activates="download">
+                            Categorias<i class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+
+                        <li><a class="dropdown-button" href="#!" data-activates="reserva">
+                            Reserva<i class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+
+                        <li><a href="{% url 'contact' %}">Contato</a> </li>
+
+
+                        <li><a href="#">Minha Conta</a> </li>
+
+                    </ul>
 
             </div>
         </nav>
@@ -103,7 +113,8 @@
     </main>
 
 
-<footer class="page-footer">
+{#RODAPÉ#}
+{#<footer class="page-footer">#}
 <nav>
     <div class="nav-wrapper">
         <ul>
@@ -114,21 +125,10 @@
         </ul>
     </div>
 </nav>
+{#</footer>#}
 
-</footer>
-
-{##}
-{#    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>#}
-{#    <script src="{%  static 'materialize/js/jquery.min.js'  %}"></script>#}
-{#    <script src="{%  static 'materialize/js/materialize.min.js'  %}"></script>#}
 
     <script>
-{#        $(document).ready(function () {#}
-{#            $('select').material_select();#}
-{#            $('.datepicker').pickadate();#}
-{#            $(".dropdown-button").dropdown();#}
-{#        });#}
-
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15 // Creates a dropdown of 15 years to control year
