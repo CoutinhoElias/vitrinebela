@@ -10,44 +10,18 @@ from vitrinebela.bookings.models import Booking
 from vitrinebela.bookings.serializer import BookingSerializer
 
 
-def scheduling2(request):
-    if request.method == 'POST':
-        form = BookingsForm(request.POST, request.FILES)
-
-        if not form.is_valid():
-            return render(request, 'bookings/scheduling_form.html', {'form':form})
-
-        user = form.cleaned_data.get('user')
-        allday = form.cleaned_data.get('allday')
-        title = form.cleaned_data.get('title')
-        start = form.cleaned_data.get('start')
-        end = form.cleaned_data.get('end')
-        authorized = form.cleaned_data.get('authorized')
-        created_on = form.cleaned_data.get('created_on')
-        editable = form.cleaned_data.get('editable')
-        color = form.cleaned_data.get('color')
-        backgroundColor = form.cleaned_data.get('backgroundColor')
-        feriado = form.cleaned_data.get('feriado')
-        participants = form.cleaned_data.get('participants')
-
-        Booking.objects.create(user=user,
-                               allday=allday,
-                               title=title,
-                               start=start,
-                               end=end,
-                               authorized=authorized,
-                               created_on=created_on,
-                               editable=editable,
-                               color=color,
-                               backgroundColor=backgroundColor,
-                               feriado=feriado,
-                               participants=participants)
-        form.save_m2m()
+class BookingViewSet(ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
 
 
-        return HttpResponseRedirect('/reserva/listagem/')
-    else:
-        return render(request, 'bookings/scheduling_form.html', {'form':BookingsForm(initial={'pessoa': request.user.id})})
+def list(request):
+    selected_date = date.today()
+    return list_date(request) #return list_date(request, selected_date.year, selected_date.month)
+
+
+def list_date(request):
+    return render(request, 'bookings/bookings_list.html') #def list_date(request, year, month):
 
 
 def scheduling(request):
@@ -68,18 +42,18 @@ def scheduling(request):
         return render(request, 'bookings/scheduling_form.html', context)
 
 
-class BookingViewSet(ModelViewSet):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
-
-
-def list(request):
-    selected_date = date.today()
-    return list_date(request) #return list_date(request, selected_date.year, selected_date.month)
-
-
-def list_date(request):
-    return render(request, 'bookings/bookings_list.html') #def list_date(request, year, month):
+def scheduling_edit(request, id_booking):
+    booking = Booking.objects.get(id=id_booking)
+    if request.method == 'GET':
+        form = BookingsForm(instance=booking)
+    else:
+        form = BookingsForm(request.POST, instance=booking)
+        if form.is_valid():
+            new = form.save(commit=False)
+            new.save()
+            form.save_m2m()
+        return HttpResponseRedirect('/reserva/listagem/')
+    return render(request, 'bookings/scheduling_form.html', {'form':form})
 
 
 # def _calendar(selected_date):

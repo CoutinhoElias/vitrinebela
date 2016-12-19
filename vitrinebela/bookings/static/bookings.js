@@ -20,17 +20,21 @@
             maxTime: '22:00:00', // End time for the calendar
 
             displayEventTime: true, // Display event time
+            editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: '/api/bookings/',
 
         // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
         // {# ENVIANDO DADOS PARA O MODAL BOOTSTRAP#}
             eventClick:  function(event, jsEvent, view) {
-                $("#modal-titleInput").val(event.title);
-                $("#modal-startInput").val(event.start.format());
-                $("#modal-endInput").val(event.end.format('DD-MM-YYYY HH:mm:ss'));
-                $("#modal-colorInput").val(event.color);
-                $("#modalTitle").html(event.title);
-                $('#fullCalModal').modal();
-                return false;
+                // $("#modal-titleInput").val(event.title);
+                // $("#modal-startInput").val(event.start.format());
+                // $("#modal-endInput").val(event.end.format('DD-MM-YYYY HH:mm:ss'));
+                // $("#modal-colorInput").val(event.color);
+                // $("#modalTitle").html(event.title);
+                // $('#fullCalModal').modal();
+                // return false;
+                window.location='reserva/editar/'+ event.id;
             },
         // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
 
@@ -105,10 +109,6 @@
             },
 
 
-
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			events: '/api/bookings/'
 		});
 
 
