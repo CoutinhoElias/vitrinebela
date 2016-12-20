@@ -13,7 +13,7 @@
             locale: 'pt-br',
 
             handleWindowResize: true,
-            weekends: false, // Hide weekends
+            weekends: true, // Hide weekends
 
 
             minTime: '07:30:00', // Start time for the calendar
@@ -34,7 +34,7 @@
                 // $("#modalTitle").html(event.title);
                 // $('#fullCalModal').modal();
                 // return false;
-                window.location='reserva/editar/'+ event.id;
+                window.location='/reserva/editar/'+ event.id;
             },
         // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
 
