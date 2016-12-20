@@ -15,16 +15,17 @@ class BookingCreateUpdateSerializer(ModelSerializer):
     class Meta:
         model = Booking
         fields = ('id',
-                  'user',
                   'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color',
                   'editable',
-                  'backgroundColor')
+                  'color',
+                  'overlap',
+                  'feriado',
+                  'participants')
 
 
 class BookingListSerializer(ModelSerializer):
@@ -37,16 +38,17 @@ class BookingListSerializer(ModelSerializer):
     class Meta:
         model = Booking
         fields = ('id',
-                  'user',
                   'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color',
                   'editable',
-                  'backgroundColor')
+                  'color',
+                  'overlap',
+                  'feriado',
+                  'participants')
 
 class BookingListFeriadoSerializer(ModelSerializer):
 
@@ -71,13 +73,14 @@ class BookingDetailSerializer(ModelSerializer):
     class Meta:
         model = Booking
         fields = ('id',
-                  'user',
                   'allday',
                   'title',
                   'start',
                   'end',
                   'created_on',
                   'authorized',
-                  'color',
                   'editable',
-                  'backgroundColor')
+                  'color',
+                  'overlap',
+                  'feriado',
+                  'participants')

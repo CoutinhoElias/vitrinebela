@@ -38,7 +38,7 @@ def scheduling(request):
         else:
             return render(request, 'bookings/scheduling_form.html', {'form':form})
     else:
-        context = {'form':BookingsForm(initial={'pessoa': request.user.id})}
+        context = {'form': BookingsForm()}
         return render(request, 'bookings/scheduling_form.html', context)
 
 
@@ -53,7 +53,7 @@ def scheduling_edit(request, id_booking):
             new.save()
             form.save_m2m()
         return HttpResponseRedirect('/reserva/listagem/')
-    return render(request, 'bookings/scheduling_form.html', {'form':form})
+    return render(request, 'bookings/scheduling_form.html', {'form': form})
 
 
 # def _calendar(selected_date):

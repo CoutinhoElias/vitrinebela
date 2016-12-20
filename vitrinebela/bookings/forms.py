@@ -15,9 +15,7 @@ from vitrinebela.bookings.models import Booking
 
 
 class BookingsForm(forms.ModelForm):
-    user = forms.ModelChoiceField(label="Pessoa",queryset=User.objects.all(),)
     allday = forms.BooleanField(label='Dia inteiro', required=False)
-    # description = "DateField options"
     title = forms.CharField(label='Titulo do agendamento')
     start = forms.DateTimeField(label='Inicia em...')
     end = forms.DateTimeField(label='Termina em...')
@@ -29,10 +27,7 @@ class BookingsForm(forms.ModelForm):
                                                     ('red', 'red'),
                                                     ('green', 'green'),
                                                     ('black', 'black')))
-    backgroundColor = forms.ChoiceField(label='Cor de fundo.', choices=(('blue', 'blue'),
-                                                                        ('red', 'red'),
-                                                                        ('green', 'green'),
-                                                                        ('black', 'black')))
+    overlap = forms.BooleanField(label='Sobrepor?', required=False)
     feriado = forms.BooleanField(label='Feriado?', required=False)
     participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all())
 
@@ -43,10 +38,11 @@ class BookingsForm(forms.ModelForm):
 
     layout = Layout(
         Fieldset("Inclua uma agenda",
-                 Row('user','title'),
-                 Row('start','end', 'created_on'),
-                 Row(Span6('color'), Span6('backgroundColor')),
-                 Row(Span3('feriado'),Span3('authorized'), Span3('editable'), Span3('allday')),
+                 Row('title'),
+                 Row('start','end', 'color'),
+                 Row(Span6('feriado'),Span6('authorized'), ),
+                 Row(Span6('editable'), Span6('allday')),
+                 Row('overlap'),
                  Row('participants')
                  )
     )
