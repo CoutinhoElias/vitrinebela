@@ -29,17 +29,19 @@ def scheduling(request):
         form = BookingsForm(request.POST)
 
         if form.is_valid():
-
+            print('<<<<==== FORM VALIDO ====>>>>')
             new = form.save(commit=False)
             new.save()
             form.save_m2m()
 
             return HttpResponseRedirect('/reserva/listagem/')
         else:
+            print('<<<<==== AVISO DE FORMULARIO INVALIDO ====>>>>')
             return render(request, 'bookings/scheduling_form.html', {'form':form})
     else:
         context = {'form': BookingsForm()}
         return render(request, 'bookings/scheduling_form.html', context)
+
 
 
 def scheduling_edit(request, id_booking):

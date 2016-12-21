@@ -24,7 +24,7 @@ class BookingCreateUpdateSerializer(ModelSerializer):
                   'editable',
                   'color',
                   'overlap',
-                  'feriado',
+                  'holiday',
                   'participants')
 
 
@@ -47,7 +47,7 @@ class BookingListSerializer(ModelSerializer):
                   'editable',
                   'color',
                   'overlap',
-                  'feriado',
+                  'holiday',
                   'participants')
 
 class BookingListFeriadoSerializer(ModelSerializer):
@@ -82,5 +82,5 @@ class BookingDetailSerializer(ModelSerializer):
                   'editable',
                   'color',
                   'overlap',
-                  'feriado',
+                  'holiday',
                   'participants')

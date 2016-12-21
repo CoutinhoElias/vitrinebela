@@ -37,7 +37,7 @@ class PostListAPIView(ListAPIView):
     serializer_class = BookingListSerializer
 
 class PostListFeriadoAPIView(ListAPIView):
-    queryset = Booking.objects.filter(feriado=True)
+    queryset = Booking.objects.filter(holiday=True)
     serializer_class = BookingListFeriadoSerializer
 
 
