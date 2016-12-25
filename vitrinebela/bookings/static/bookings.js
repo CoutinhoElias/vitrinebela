@@ -80,7 +80,8 @@
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: event.color
+                              color: event.color,
+                              editable: event.editable
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
@@ -100,7 +101,7 @@
                               end: event.end.format(),
                               all_day: true,
                               color: event.color,
-                              participants: event.participants
+                              editable: event.editable,
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));

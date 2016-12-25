@@ -24,8 +24,7 @@ class BookingCreateUpdateSerializer(ModelSerializer):
                   'editable',
                   'color',
                   'overlap',
-                  'holiday',
-                  'participants')
+                  'holiday')
 
 
 class BookingListSerializer(ModelSerializer):
