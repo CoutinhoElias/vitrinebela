@@ -39,14 +39,14 @@
         // {#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*        #}
 
 			select: function(start, end) {
-				var title = prompt('Nome do evento:');
-                var color = prompt('Agoraa cor do evento:');
+                // var title = prompt('Nome do evento:');
+                // var color = prompt('Agoraa cor do evento:');
 				var eventData;
 				if (title) {
 					eventData = {
 						title: title,
-						start: start.format('YYYY-MM-DD HH:mm:ss'),
-						end: end.format('YYYY-MM-DD HH:mm:ss'),
+						start: start.format(),
+						end: end.format(),
                         color: color
 					};
 					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
@@ -55,10 +55,10 @@
                         type: "POST",
                         url: '/api/bookings/create/',
                         data: {
-                          user: 2,
+                          //user: 2,
                           title: title,
-                          start: start.format('YYYY-MM-DD HH:mm:ss'),
-                          end: end.format('YYYY-MM-DD HH:mm:ss'),
+                          start: start.format(),
+                          end: end.format(),
                           all_day: true,
                           color: color
                         }
@@ -75,7 +75,7 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: event.user,
+                              //user: event.user,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
@@ -94,12 +94,13 @@
                         url: '/api/bookings/' + event.id +'/edit/',
                         data: {
 
-                              user: event.user,
+                              //user: event.user,
                               title: event.title,
                               start: event.start.format(),
                               end: event.end.format(),
                               all_day: true,
-                              color: event.color
+                              color: event.color,
+                              participants: event.participants
                         },
                     success: function(json) {
                         alert(event.title + " foi modificado para data " + event.start.format('L'));
