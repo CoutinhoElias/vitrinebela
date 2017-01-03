@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% load material_form %}
+
+{% block title %}
+    Entrar | {{ block.super }}
+{% endblock %}
+
+
+{% block css %}
+        <style type="text/css">
+        nav{
+            background-color: #2c3e50;
+        }
+        .btn{
+            background-color: #2c3e50;
+        }
+
+        footer.page-footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-copyright{
+            background-color: #2c3e50;
+        }
+
+        .card{
+            border-radius: 20px;
+            margin-top:6em
+        }
+
+        body {
+            background: #eee;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+
+      }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        img {
+            float:left;
+            margin:0 20px 10px 0;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+{% endblock %}
+
+
+{% block container %}
+
+<div class="container expand-on-small-only">
+    <div class="row valign change-form">
+        <div class="col s12 m8 offset-m2 l8 offset-l2">
+            <div class="card">
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+                <div class="card-content">
+                    <span class="card-title grey-text text-darken-2">Login</span>
+                    {% form %}
+                        {% part form.username prefix %}<i class="material-icons prefix">account_box</i>{% endpart %}
+                        {% part form.password prefix %}<i class="material-icons prefix">lock</i>{% endpart %}
+                    {% endform %}
+                </div>
+
+                <div class="card-action">
+                    <div class="right-align">
+                        <button class="waves-effect waves-light btn" type="submit">Entrar</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

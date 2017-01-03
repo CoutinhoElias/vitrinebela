@@ -20,7 +20,7 @@
     <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
     {% include 'material/includes/material_js.html' %}
 
-
+{% block css %}
     <style type="text/css">
         nav{
             background-color: #2c3e50;
@@ -58,6 +58,8 @@
             margin: 0 auto;
         }
     </style>
+{% endblock %}
+
 </head>
 
 <body>
@@ -93,8 +95,13 @@
 
                         <li><a href="{% url 'contact' %}">Contato</a> </li>
 
+                        {% if user.is_authenticated %}
+                            <li>Olá, {{ user }}</li>
+                            <li><a href="{% url 'logout' %}">Sair</a> </li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Entrar</a> </li>
+                        {% endif %}
 
-                        <li><a href="#">Minha Conta</a> </li>
 
                     </ul>
 
@@ -120,6 +127,11 @@
           <li><a class="grey-text text-lighten-3" href="{% url 'catalog:product_list' %}">Produtos</a></li>
           <li><a class="grey-text text-lighten-3" href="{% url 'contact' %}">Contato</a></li>
           <li><a class="grey-text text-lighten-3" href="#top">Termos</a></li>
+        {% if user.is_authenticated %}
+            <li>Usuário logado: {{ user }}</li>
+        {% else %}
+            <li>Nenhum Usuário logado</li>
+        {% endif %}
         </ul>
     </div>
 </nav>

@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from django.contrib.admin.widgets import FilteredSelectMultiple
+
 from material import Fieldset
 from material import Layout
 from material import Row
@@ -29,7 +31,7 @@ class BookingsForm(forms.ModelForm):
                                                     ('black', 'black')))
     overlap = forms.BooleanField(label='Sobrepor?', required=False)
     holiday = forms.BooleanField(label='Feriado?', required=False)
-    participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all())
+    participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all(), widget=FilteredSelectMultiple("Participantes", is_stacked=False))
 
     class Meta:
         model = Booking
@@ -46,6 +48,14 @@ class BookingsForm(forms.ModelForm):
                  Row('participants')
                  )
     )
+
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=30, label="Nome")
+    # email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
+    # keep_logged = forms.BooleanField(required=False, label="Keep me logged in")
 
 # input_formats = ['%Y-%m-%d %H:%M:%S',    # '2006-10-25 14:30:59'
 #  '%Y-%m-%d %H:%M',       # '2006-10-25 14:30'

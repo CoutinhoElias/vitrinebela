@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load material_form %}
-
+{% load static %}
 
 {% block title %}
     {{ scheduling }} | {{ block.super }}
@@ -15,8 +15,11 @@
 
     <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
         <div class="card-content">
+{#        <script type="text/javascript" src="{% static 'js/jsi18n.js' %}"></script>#}
+{#        <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>#}
+{#        <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>#}
+{#        {{ form.media }}#}
             {% form %}
-
 {#                {% part form.name prefix %}<i class="material-icons prefix">person</i>{% endpart %}#}
 {#                {% part form.email prefix %}<label for="id_email"></label><i class="material-icons prefix">email</i>{% endpart %}#}
 {#                {% part form.message prefix %}<i class="material-icons prefix">mode_edit</i>{% endpart %}#}

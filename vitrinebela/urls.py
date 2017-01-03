@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework import routers
 
-from vitrinebela.bookings.views import BookingViewSet
+
+from django.contrib.auth.views import login, logout
+
 from vitrinebela.core import views
 
-# router = routers.DefaultRouter()
-# router.register(r'bookings', BookingViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contato/$', views.contact, name='contact'),
+    url(r'^login/$', login, {'template_name': 'login.html'},name='login'),
+    url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
 
 
