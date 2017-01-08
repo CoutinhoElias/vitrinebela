@@ -31,7 +31,18 @@ class BookingsForm(forms.ModelForm):
                                                     ('black', 'black')))
     overlap = forms.BooleanField(label='Sobrepor?', required=False)
     holiday = forms.BooleanField(label='Feriado?', required=False)
-    participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all(), widget=FilteredSelectMultiple("Participantes", is_stacked=False))
+    participants = forms.ModelMultipleChoiceField(
+              label='Participantes',
+              queryset=User.objects.all(),
+              widget=FilteredSelectMultiple(
+                  "Participantes",
+                  is_stacked=False,
+                  attrs={
+                      'multiple':'multiple',
+                      'id': 'my-select',
+                      'name': 'my-select[]'
+                  }))
+    #participants = forms.ModelMultipleChoiceField(label='Participantes',queryset=User.objects.all(), widget=FilteredSelectMultiple("Participantes", is_stacked=False))
 
     class Meta:
         model = Booking

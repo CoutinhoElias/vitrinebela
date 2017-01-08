@@ -10,6 +10,9 @@ from django.core.mail import send_mail
 import smtplib
 from email.mime.text import MIMEText
 
+from material import Span12
+from material import Span6
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Nome')
@@ -18,8 +21,8 @@ class ContactForm(forms.Form):
 
     layout = Layout(
         Fieldset("Fale Conosco",
-                 Row('name', 'email'),
-                 Row('message')))
+                 Row(Span6('name'), Span6('email')),
+                 Row(Span12('message'))))
 
     def send_mail(self):
         name = self.cleaned_data['name']

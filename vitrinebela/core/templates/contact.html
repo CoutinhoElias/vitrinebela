@@ -1,79 +1,90 @@
 {% extends "base.html" %}
+{% load static %}
 {% load material_form %}
 
 {% block title %}
     Contato | {{ block.super }}
 {% endblock %}
 
+
+{% block css %}
+        <style type="text/css">
+        nav{
+            background-color: #2c3e50;
+        }
+        .btn{
+            background-color: #2c3e50;
+        }
+
+        footer.page-footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-copyright{
+            background-color: #2c3e50;
+        }
+
+        .card{
+            border-radius: 20px;
+            margin-top:5em
+        }
+
+        body {
+            background: #eee;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+
+      }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        img {
+            float:left;
+            margin:0 20px 10px 0;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+{% endblock %}
+
+
 {% block container %}
+
 {%  if success %}
     <div class="alert-success">
         Mensagem enviada com sucesso!
     </div>
 {% endif %}
 
-    <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
-        <div class="card-content">
-            {% form %}
+<div class="container expand-on-small-only">
+    <div class="row valign change-form">
+        <div class="m8 offset-m2 l8 offset-l2">
+            <div class="card">
+            <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
 
-                {% part form.name prefix %}<i class="material-icons prefix">person</i>{% endpart %}
-                {% part form.email prefix %}<label for="id_email"></label><i class="material-icons prefix">email</i>{% endpart %}
-                {% part form.message prefix %}<i class="material-icons prefix">mode_edit</i>{% endpart %}
+                <div class="card-content">
+                    {% form %}
+                        {% part form.name prefix %}<i class="material-icons prefix">person</i>{% endpart %}
+                        {% part form.email prefix %}<label for="id_email"></label><i class="material-icons prefix">email</i>{% endpart %}
+                        {% part form.message prefix %}<i class="material-icons prefix">mode_edit</i>{% endpart %}
+                    {% endform %}
+                </div>
 
-            {% endform %}
-        </div>
-
-        <div class="card-action">
-            <div class="right-align">
-                <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+                <div class="card-action">
+                    <div class="right-align">
+                        <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
             </div>
         </div>
-
-    </form>
-
-{% endblock %}
-
-
-{#{% part form.name prefix %}<i class="material-icons prefix">person</i>{% endpart %}#}
-
-{% comment %}
-<div class="row">
-    <div class="col s12">
-        <h1>Fale conosco</h1>
-
-        <form action="#">
-
-            <fieldset>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">person</i>
-                    <input type="text" id="id_name">
-                    <label for="id_name">Nome</label>
-                </div>
-
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">email</i>
-                    <input type="text" id="id_email">
-                    <label for="id_mail">E-Mail</label>
-                </div>
-
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea class="materialize-textarea" name="id_message" id="id_message" cols="30" rows="10">
-
-                    </textarea>
-                    <label for="id_message">Mensagem</label>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-9 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                  </div>
-                </div>
-            </fieldset>
-
-
-        </form>
     </div>
 </div>
 
-{% endcomment %}
+{% endblock %}

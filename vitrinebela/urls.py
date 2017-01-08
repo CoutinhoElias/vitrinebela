@@ -26,9 +26,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contato/$', views.contact, name='contact'),
+    url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
+
+    url(r'^registro/$', views.register, name='register'),
     url(r'^login/$', login, {'template_name': 'login.html'},name='login'),
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
-    url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
+
+
 
 
     # url(r'^api/', include(router.urls, namespace='api')),
