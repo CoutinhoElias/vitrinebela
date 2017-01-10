@@ -58,6 +58,25 @@
 
 {% block container %}
 
+
+    <link rel="stylesheet" href="{% static 'material/css/materialize.admin.min.css' %}">
+
+    <script>
+        // Use same django for material and django admin
+        var django = django || {};
+        django.jQuery = jQuery.noConflict(true);
+        window.jQuery = window.$ = django.jQuery
+    </script>
+    <script src="{% static 'adm/jsi18n.js' %}"></script>
+    <script src="{% static 'adm/js/core.js' %}"></script>
+    <script src="{% static 'adm/js/jquery.min.js' %}"></script>
+    <script src="{% static 'adm/js/jquery.init.js' %}"></script>
+    <script src="{% static 'adm/js/adm/RelatedObjectLookups.js' %}"></script>
+    <script src="{% static 'adm/js/actions.min.js' %}"></script>
+    <script src="{% static 'adm/js/SelectBox.js' %}"></script>
+    <script src="{% static 'adm/js/SelectFilter2.js' %}"></script>
+    <script src="{% static 'adm/js/related-widget-wrapper.js' %}"></script>
+
 <div class="container expand-on-small-only">
     <div class="row valign change-form">
         <div class="m8 offset-m2 l8 offset-l2">
@@ -81,5 +100,13 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    addEvent(window, "load", function(e) {
+        SelectFilter.init("id_participants", "participants", 0, "/static/admin/");
+    });
+}
+</script>
 
 {% endblock %}
