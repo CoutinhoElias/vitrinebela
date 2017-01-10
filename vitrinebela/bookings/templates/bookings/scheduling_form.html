@@ -51,6 +51,91 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
+
+
+        .related-widget-wrapper label.related-widget-label{
+            font-size:15px;
+            color:#000;
+            font-weight:200}
+        .change-form .related-widget-wrapper .related-widget-wrapper-link{
+            opacity:.3}
+        .change-form .related-widget-wrapper .related-widget-wrapper-link:link{opacity:1}
+        .change-form .multiselect .selector-chooser{
+            text-align:center
+        }
+        .change-form .multiselect .selector-chooser li{
+            margin-bottom:5px
+        }
+        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{
+            background-color:#80c883
+        }
+        @media only screen and (min-width:601px){
+            .change-form .multiselect{
+                margin-bottom:40px
+            }
+        }
+        .change-form .multiselect hr{
+            color:#eee;
+            background-color:#eee;
+            height:1px;border:none
+        }
+        .change-form .multiselect .selector-available{
+            width:calc(50% - 30px);width:-moz-calc(50% - 30px)
+        }
+        .change-form
+        .multiselect
+        .selector-available input,
+        .change-form
+        .multiselect
+        .selector-chosen input{
+            margin-bottom:0
+        }
+        .change-form
+        .multiselect
+        .selector-available select{
+            height:120px
+        }
+        .change-form
+        .multiselect
+        .selector-chooser{
+            width:60px;
+            padding-top:40px
+        }
+        .change-form .multiselect
+        .selector-chosen{
+            width:calc(50% - 30px);
+            width:-moz-calc(50% - 30px)
+        }
+        .change-form
+        .multiselect
+        .selector-chosen select{
+            height:120px
+        }
+        @media only screen and (max-width:600px){
+            .change-form
+            .multiselect
+            .selector-available select{height:120px}
+            .change-form
+            .multiselect
+            .selector-chooser li{
+                display:inline
+            }
+            .change-form
+            .multiselect
+            .selector-chooser
+            .selector-add i,
+            .change-form
+            .multiselect
+            .selector-chooser
+            .selector-remove i{
+                transform:rotate(90deg);
+                position:relative;
+                top:10px;}
+                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+
+
     </style>
 {% endblock %}
 
@@ -58,8 +143,8 @@
 
 {% block container %}
 
-
-    <link rel="stylesheet" href="{% static 'material/css/materialize.admin.min.css' %}">
+{#    <link rel="stylesheet" href="{% static 'adm/css/base.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'material/css/materialize.admin.min.css' %}">#}
 
     <script>
         // Use same django for material and django admin
