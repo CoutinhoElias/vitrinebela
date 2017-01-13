@@ -9,17 +9,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% block material %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'material/css/materialize.css' %}">
-    <link rel="stylesheet" href="{% static 'material/css/jquery.datetimepicker.css' %}">
-    <link rel="stylesheet" href="{% static 'material/css/materialize.forms.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/materialize.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/jquery.datetimepicker.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/materialize.forms.css' %}">
 
-{#django-material#}
-    <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+    {#django-material#}
+        <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
 
-    {% include 'material/includes/material_js.html' %}
-
+        {% include 'material/includes/material_js.html' %}
+{% endblock %}
 
 
 
@@ -31,6 +32,7 @@
         }
         .btn{
             background-color: #2c3e50;
+            border-radius: 10px;
         }
 
         footer.page-footer {
@@ -61,6 +63,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
     </style>
 {% endblock %}
 

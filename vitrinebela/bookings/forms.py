@@ -31,7 +31,6 @@ class BookingsForm(forms.ModelForm):
                                                     ('black', 'black')))
     overlap = forms.BooleanField(label='Sobrepor?', required=False)
     holiday = forms.BooleanField(label='Feriado?', required=False)
-  # participants = forms.ModelMultipleChoiceField(label='Participantes', queryset=User.objects.all(), widget=FilteredSelectMultiple("Participantes", is_stacked=False, attrs={'multiple':'multiple', 'id': 'my-select', 'name': 'my-select[]'}))
     participants = forms.ModelMultipleChoiceField(label='Participantes', queryset=User.objects.all(), widget=FilteredSelectMultiple("Participantes", is_stacked=False, attrs={'class':'material-ignore','multiple':'True'}))
 
     class Meta:
@@ -51,12 +50,13 @@ class BookingsForm(forms.ModelForm):
     )
 
 
+# class LoginForm(forms.Form):
+#     username = forms.CharField(max_length=30, label="Nome")
+#     # email = forms.EmailField()
+#     password = forms.CharField(widget=forms.PasswordInput)
+#     # keep_logged = forms.BooleanField(required=False, label="Keep me logged in")
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=30, label="Nome")
-    # email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    # keep_logged = forms.BooleanField(required=False, label="Keep me logged in")
+
 
 # input_formats = ['%Y-%m-%d %H:%M:%S',    # '2006-10-25 14:30:59'
 #  '%Y-%m-%d %H:%M',       # '2006-10-25 14:30'
