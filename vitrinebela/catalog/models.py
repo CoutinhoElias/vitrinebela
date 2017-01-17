@@ -31,6 +31,7 @@ class Product(models.Model):
     price = models.DecimalField('Preço', decimal_places=2, max_digits=8)
     created = models.DateTimeField('Criado em', auto_now_add=True)
     modified = models.DateTimeField('Modificado em', auto_now=True)
+    image = models.ImageField('Imagem', upload_to='products', blank=True, null=True)
 
     class Meta:
         verbose_name ='Produto'
