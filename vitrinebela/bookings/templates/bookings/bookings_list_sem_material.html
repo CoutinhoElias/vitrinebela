@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load material_form %}
+
+{% block title %}
+    Registro | {{ block.super }}
+{% endblock %}
+
+{% block material %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{#    Abaixo um conflitante#}
+{#    <link rel="stylesheet" href="{% static 'material/css/materialize.css' %}">#}
+
+
+    <link rel='stylesheet' href="{%  static 'fullcalendar/fullcalendar.css'%}" />
+    <script src="{%  static 'fullcalendar/lib/jquery.min.js'  %}"></script>
+    <script src="{%  static 'fullcalendar/lib/moment.min.js'  %}"></script>
+    <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
+    <script src="{%  static 'fullcalendar/locale/pt-br.js'  %}"></script>
+
+{% endblock %}
+
+
+
+{% block container %}
+<br>
+
+  <div id='calendar'></div>
+
+
+    <script src="{% static 'django_csrf.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
+    <script src="{% static 'bookings.js' %}"></script>
+
+{% endblock %}
