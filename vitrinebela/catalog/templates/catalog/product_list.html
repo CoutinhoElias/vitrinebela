@@ -10,29 +10,29 @@
     <h1>Produtos</h1>
 </div>
 
-<div>
-  <div class="row">
-    {% for product in product_list %}
-        <div class="col s4 m4">
-          <div class="card">
-            <div class="card-image">
-                {% if product.image %}
-                    <img src="{‌{ product.image.url }}" class="img-responsive">
-                {% else %}
+    <div>
+      <div class="row">
+        {% for product in product_list %}
+            <div class="col s4 m4">
+              <div class="card">
+                <div class="card-image">
+                  {% if product.image %}
+                      <img src="{{ product.image.url }}" class="img-responsive">
+                  {% else %}
                     <img src="http://placehold.it/350x250" alt="" />
-                {% endif %}
-              <span class="card-title">Creme de barbear</span>
+                  {% endif %}
+                  <span class="card-title">Creme de barbear</span>
+                </div>
+                <div class="card-content">
+                    <h5>{{ product }}</h5>
+                    {{ product.description|linebreaks }}
+                </div>
+                <div class="card-action">
+                  <a href="{{ product.get_absolute_url }}">This is a link</a>
+                </div>
+              </div>
             </div>
-            <div class="card-content">
-                <h5>{{ product }}</h5>
-                {{ product.description|linebreaks }}
-            </div>
-            <div class="card-action">
-              <a href="{{ product.get_absolute_url }}">This is a link</a>
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-  </div>
-</div>
+        {% endfor %}
+      </div>
+    </div>
 {% endblock %}

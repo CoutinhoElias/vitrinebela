@@ -16,7 +16,11 @@
         <div class="col s4 m4">
           <div class="card">
             <div class="card-image">
-              <img src="http://placehold.it/350x250" class="responsive-img">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="img-responsive">
+                {% else %}
+                    <img src="http://placehold.it/350x250" alt="" />
+                {% endif %}
               <span class="card-title">Creme de barbear</span>
             </div>
             <div class="card-content">
