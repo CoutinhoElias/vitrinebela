@@ -2,17 +2,139 @@
 {% load static %}
 
 {% block container %}
+	<!--MAIN-->
+	<main>
+		<!--PARALLAX-->
+		<div class="parallax-container">
+			<div class="parallax-text">
+				<div class="container">
+					<h2 class="center white-text main-text">Programador Honesto</h2>
+					<h5 class="center white-text light">Seja muito bem vindo, meu amigo programador!</h5>
+				</div>
+			</div>
+	   		<div class="parallax">
+	    		<img src="static/materialize/img/parallax.jpg">
+	    	</div>
+		</div>
+		<!--SECTION-->
+		<div class="container">
+			<!--ARTIGOS-->
+			<br>
+			<h5>Mais recentes</h5>
+			<div class="row section no-space-row">
+				<div class="col l4 m12 s12">
+					<div class="card small">
+						<div class="card-image waves-effect waves-light card-image-cover">
+							<img src="static/materialize/img/img-1.jpg" alt="">
+						</div>
+						<a href="#" class="btn-floating add-btn-flt amber darken-1"><i class="material-icons">add</i></a>
+						<div class="card-content">
+							<span class="card-title truncate">A importância da programação</span>
+						</div>
+					</div>
+				</div>
+				<div class="col l4 m12 s12">
+					<div class="card small">
+						<div class="card-image waves-effect waves-light card-image-cover">
+							<img src="static/materialize/img/img-2.jpg" alt="">
+						</div>
+						<a href="#" class="btn-floating add-btn-flt amber darken-1"><i class="material-icons">add</i></a>
+						<div class="card-content">
 
-    <div class="jumbotron">
-        <h1>Vitrine Bela E-Commerce</h1>
-              <img src="{%  static 'img/vitrineBela.jpg'  %}" class="responsive-img">
-              <h4>Vitrine Bela é uma criação de Tahoe Service</h4>
-              <h6>Repositório no GitHub: https://github.com/CoutinhoElias/vitrinebela</h6>
-        </div>
+							<span class="card-title truncate">Por que usar MaterializeCss nos seus projetos?</span>
+						</div>
+					</div>
+				</div>
+				<div class="col l4 m12 s12">
+					<div class="card small">
+						<div class="card-image waves-effect waves-light card-image-cover">
+							<img src="static/materialize/img/img-3.jpg" alt="">
+						</div>
+						<a href="#" class="btn-floating add-btn-flt amber darken-1"><i class="material-icons">add</i></a>
+						<div class="card-content">
+							<span class="card-title truncate">As vantagens de usar Vue.js</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="btn waves-effects blue white-text">Mais matérias</a>
+		</div>
+		<br>
+		<div class="row section no-space-row blue-grey darken-4">
+			<div class="container">
+				<h5 class="white-text">Vídeo-aulas</h5>
+				<div class="row">
+					<div class="col s12 l6">
+						<div class="video-container">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/dz1eyP847gU" frameborder="0" allowfullscreen>
 
-      <p><a class="btn btn-primary">Saiba mais</a></p>
-
-
-    </div>
-
+							</iframe>
+						</div>
+					</div>
+					<div class="col s12 l6">
+						<h5 class="white-text condensed">Iniciando no Desenvolvimento Web</h5>
+						<p class="white-text flow-text">
+							Primeiro vídeo do canal, onde falo um pouco sobre minha experiência sobre desenvolvimento web!
+						</p>
+						<small class="white-text">
+							Tempo: 9:50
+						</small>
+						<br>
+						<br>
+						<a href="javascript:void(0)" class="btn white blue-text waves-effect">Mais vídeos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--USUARIOS-->
+		<div class="row section no-space-row">
+			<div class="container">
+				<h5>Depoimentos</h5>
+				<div class="row section">
+					<div class="col s12 m12 l4">
+						<div class="card-panel hoverable">
+							<div class="row valign-wrapper no-space-row">
+								<div class="col s2">
+									<img src="static/materialize/img/joao.png" alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="black-text">
+										<i class="light">"Gostei muito da vídeo aula. Meus parabéns, bonitão! Vou voltar aqui todo dia pra te dar um beijo na boca virtual!"</i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m12 l4">
+						<div class="card-panel">
+							<div class="row valign-wrapper no-space-row">
+								<div class="col s2">
+									<img src="static/materialize/img/joao.png" alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="black-text">
+										<i class="light">"Você é lindo! Eu não entendo nada, mas vc é maravilhoso!"</i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m12 l4">
+						<div class="card-panel">
+							<div class="row valign-wrapper no-space-row">
+								<div class="col s2">
+									<img src="static/materialize/img/joao.png" alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="black-text">
+										<i class="light">"Estou apaixonada!"</i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 {% endblock %}

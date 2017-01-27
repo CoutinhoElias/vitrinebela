@@ -1,0 +1,112 @@
+{% load static %}
+{% load material_form %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Django E-comerce {% endblock %}</title>
+
+
+
+{% block material %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'material/css/materialize.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/jquery.datetimepicker.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/materialize.forms.css' %}">
+
+            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+    {#django-material#}
+        <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+
+        {% include 'material/includes/material_js.html' %}
+{% endblock %}
+
+
+</head>
+<body>
+    <header>
+
+    </header>
+
+
+<ul id="slide-out" class="side-nav">
+
+    <li><div class="userView">
+      <div class="background">
+{#        FIGURA DE FUNDO, UMA COR EM CONTRASTE COM BRANCO  #}
+        <img src="/static/img/vitrineBela.jpg">
+      </div>
+{#      FOTO DO USER  #}
+      <a href="#!user"><img class="circle" src="/static/img/vitrineBela.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>Primeiro link com ícone</a></li>
+    <li><a href="#!">Segundo Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+
+
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Cadastro</div>
+{#          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>#}
+            <li><a href="{% url 'contact' %}">Contato</a> </li>
+
+            {% if user.is_authenticated %}
+            <div class="collapsible-body"><a href="{% url 'logout' %}">Sair</a></div>
+{#            <li><a href="{% url 'logout' %}">Sair</a> </li>#}
+            {% else %}
+            <div class="collapsible-body"><a href="{% url 'login' %}">Entrar</a></div>
+{#            <li><a href="{% url 'login' %}">Entrar</a> </li>#}
+            {% endif %}
+
+            <li><a href="{% url 'register' %}">Registro</a> </li>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+     </ul>
+
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+
+
+    <main>
+        <div class="container">
+             {% block container %}
+
+             {% endblock %}
+        </div>
+    </main>
+
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+
+        // Show sideNav
+        $('.button-collapse').sideNav('show');
+        // Hide sideNav
+        $('.button-collapse').sideNav('hide');
+        // Destroy sideNav
+        $('.button-collapse').sideNav('destroy');
+    </script>
+
+</body>
+</html>

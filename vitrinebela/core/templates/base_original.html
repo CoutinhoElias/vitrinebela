@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+{% load material_form %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} Django E-comerce {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+{% block material %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'material/css/materialize.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/jquery.datetimepicker.css' %}">
+        <link rel="stylesheet" href="{% static 'material/css/materialize.forms.css' %}">
+
+    {#django-material#}
+        <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+
+        {% include 'material/includes/material_js.html' %}
+{% endblock %}
+
+
+{% block css_person %}
+
+{% endblock %}
+
+
+{% block css %}
+    <style type="text/css">
+        nav{
+            background-color: #2c3e50;
+        }
+        .btn{
+            background-color: #2c3e50;
+            border-radius: 10px;
+        }
+
+        footer.page-footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-copyright{
+            background-color: #2c3e50;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+
+      }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        img {
+            float:left;
+            margin:0 20px 10px 0;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+    </style>
+{% endblock %}
+
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{% url 'index' %}" class="brand-logo">Vitrine Bela</a>
+
+{#                    DROPDOWN DE CATEGORIAS#}
+                    <ul class="dropdown-content" id="download">
+                        {% for category in categories %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+{#                    DROPDOWN DE RESERVA#}
+                    <ul class="dropdown-content" id="reserva">
+
+                            <li><a href="{% url "booking:scheduling" %}">Agendamento</a></li>
+                            <li><a href="{% url "booking:list" %}">Listagem</a></li>
+
+                    </ul>
+
+{#                    ITENS DA NAVBAR#}
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="dropdown-button" href="#!" data-activates="download">
+                            Categorias<i class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+
+                        <li><a class="dropdown-button" href="#!" data-activates="reserva">
+                            Reserva<i class="material-icons right">arrow_drop_down</i></a>
+                        </li>
+
+                        <li><a href="{% url 'contact' %}">Contato</a> </li>
+
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}">Sair</a> </li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Entrar</a> </li>
+                        {% endif %}
+
+                        <li><a href="{% url 'register' %}">Registro</a> </li>
+
+
+                    </ul>
+
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="container">
+             {% block container %}
+
+             {% endblock %}
+        </div>
+    </main>
+
+
+{#RODAPÉ#}
+{#<footer class="page-footer">#}
+<nav>
+    <div class="nav-wrapper">
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="{% url 'index' %}">Início</a></li>
+          <li><a class="grey-text text-lighten-3" href="{% url 'catalog:product_list' %}">Produtos</a></li>
+          <li><a class="grey-text text-lighten-3" href="{% url 'contact' %}">Contato</a></li>
+          <li><a class="grey-text text-lighten-3" href="#top">Termos</a></li>
+        {% if user.is_authenticated %}
+            <li>Usuário logado: {{ user }}</li>
+        {% else %}
+            <li>Nenhum Usuário logado</li>
+        {% endif %}
+        </ul>
+    </div>
+</nav>
+{#</footer>#}
+
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+
+</body>
+</html>

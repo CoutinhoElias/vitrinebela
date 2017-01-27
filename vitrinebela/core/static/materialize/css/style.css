@@ -1,0 +1,235 @@
+/* HEADER                                    */
+.mini-perfil{
+	width: 37px;
+	margin-top: 12px;
+	margin-right: 20px;
+	position: absolute;
+}
+
+#btn-sidebar{
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#btn-sidebar.toggled{
+	margin-left: 250px;
+}
+
+.match-parent{
+	max-height: 100%;
+}
+
+#profile-name{
+	margin-left: 60px;
+}
+
+#logo-header{
+	font-size: 18px;
+}
+
+.parallax-text{
+	width: 100%;
+}
+.parallax-container {
+      height: 500px;
+}
+
+.main-text{
+	margin-top: 160px;
+}
+
+.card-image-cover{
+	width: 100%;
+}
+
+.add-btn-flt{
+	position: relative;
+	top: -18px;
+	right: 10%;
+    float: right;
+}
+
+
+.autocomplete-content{
+	position: absolute;
+}
+
+.row.no-space-row{
+	margin-bottom: 0;
+}
+
+label.active{
+	color: #42a5f5 !important;
+}
+
+input:not([type]):focus:not([readonly]), 
+input[type=text]:focus:not([readonly]), 
+input[type=password]:focus:not([readonly]), 
+input[type=email]:focus:not([readonly]), 
+input[type=url]:focus:not([readonly]), 
+input[type=time]:focus:not([readonly]), 
+input[type=date]:focus:not([readonly]), 
+input[type=datetime]:focus:not([readonly]), 
+input[type=datetime-local]:focus:not([readonly]), 
+input[type=tel]:focus:not([readonly]), 
+input[type=number]:focus:not([readonly]), 
+input[type=search]:focus:not([readonly]), 
+textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #42a5f5 !important;
+}
+
+.page-footer{
+	margin-top: 0 !important;
+}
+
+#redes-sociais li{
+	width: 40px;
+	float: left;
+	margin-right: 20px;
+}
+
+.img-msg{
+	width: 30px;
+}
+
+.dropdown-content{
+	top:64px !important;
+}
+
+/** SIDEBAR -------------------------------------------------------------*/
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#info-user-menu{
+	padding: 30px 10px 30px 10px;
+	width: 100%;
+}
+
+#perfil-sidebar{
+	width: 50px;
+	display: block;
+	margin: 15px auto;
+}
+
+.user-name-menu{
+	font-size: 18px;
+	line-height: 3.1;
+	width: 100%;
+	display: block;
+	
+}
+
+.search-field{
+	padding: 10px;
+}
+
+.ident{
+	text-indent: 20px;
+	line-height: 40px;
+}
+
+#sidebar-wrapper i.right{
+	margin-top: 12px;
+	margin-right: 8px;
+	font-size: 14px;
+}
+
+.child-menu li a span{
+	margin-left: 20px;
+	font-size: 12px;
+}
+
+.child-menu{
+	display: none;
+	border-top: 1px #222 solid;
+}
