@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +8,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %} Django E-comerce {% endblock %}</title>
 
+{% block css %}
 
-    <link rel="stylesheet" href="{% static 'materialize/css/icons.css' %}">
-    <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">
+{% endblock %}
+
+    <link href="{% static 'material/fonts/material-design-icons/material-icons.css' %}" rel="stylesheet">
+
+    <link href="{% static 'material/css/materialize.css' %}" rel="stylesheet">
+    <link href="{% static 'material/css/materialize.forms.css' %}" rel="stylesheet">
+    <link href="{% static 'material/css/jquery.datetimepicker.css' %}" rel="stylesheet">
+
+{#    <link rel="stylesheet" href="{% static 'materialize/css/icons.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">#}
     <link rel="stylesheet" href="{% static 'materialize/css/style.css' %}">
 
     {% include 'material/includes/material_js.html' %}
+
 </head>
 <body>
 	<!--SIDEBAR-->
@@ -233,9 +244,27 @@
 			</ul>
 		</div>
 	</div>
+
+{% block js %}
     <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
 {#    <script src="{% static 'materialize/js/jquery-3.1.1.min.js' %}"></script>#}
     <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
+
+
+
+    <script src="{% static 'material/js/jquery.datetimepicker.js' %}"></script>
+    <script src="{% static 'material/js/jquery.formset.js' %}"></script>
+    <script src="{% static 'material/js/materialize.forms.js' %}"></script>
     <script src="{% static 'materialize/js/app.js' %}"></script>
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+
+{% endblock %}
+
 </body>
 </html>
