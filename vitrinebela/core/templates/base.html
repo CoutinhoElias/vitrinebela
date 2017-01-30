@@ -33,7 +33,8 @@
 	        <ul class="sidebar-nav">
 	            <li>
 	            	<div id="info-user-menu">
-	            		<img src="static/materialize/img/joao.png" class="circle center" alt="" id="perfil-sidebar">
+                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+{#	            		<img src="static/materialize/img/joao.png" class="circle center" alt="" id="perfil-sidebar">#}
 	            		<h6 class="white-text user-name-menu center user-name-menu">Gabriel Senna</h6>
 	            	</div>
 	            </li>
@@ -119,7 +120,8 @@
 		        	</li>
 		          	<li>
 		          		<a href="#" class="match-parent dropdown-button" data-activates="dropdown-user">
-		          			<img src="static/materialize/img/joao.png" alt="Perfil" class="mini-perfil circle">
+                            <img src="{% static 'materialize/img/joao.png' %}" class="mini-perfil circle img-responsive" alt="Perfil">
+{#		          			<img src="static/materialize/img/joao.png" alt="Perfil" class="mini-perfil circle">#}
 		          			<span class="white-color" id="profile-name">Gabriel Senna</span>
 		          			<i class="material-icons right">arrow_drop_down</i>
 		        		</a>
@@ -141,9 +143,10 @@
   	</header>
 
 
-{% block container %}
+	<!--CONTAINER-->
+    {% block container %}
 
-{% endblock %}
+    {% endblock %}
 
 
 	<!--FOOTER-->
@@ -179,22 +182,22 @@
 							<ul id="redes-sociais">
 								<li>
 									<a href="javascript:void(0)">
-										<img src="static/materialize/img/youtube.png" class="responsive-img" alt="">
+                                        <img src="{% static 'materialize/img/youtube.png' %}" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-										<img src="static/materialize/img/facebook.png" class="responsive-img" alt="">
+                                        <img src="{% static 'materialize/img/facebook.png' %}" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-										<img src="static/materialize/img/twitter.png" class="responsive-img" alt="">
+                                        <img src="{% static 'materialize/img/twitter.png' %}" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-										<img src="static/materialize/img/instagram.png" class="responsive-img" alt="">
+                                        <img src="{% static 'materialize/img/instagram.png' %}" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 							</ul>
