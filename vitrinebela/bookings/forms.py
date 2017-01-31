@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 from django.contrib.admin.widgets import FilteredSelectMultiple
 
@@ -13,6 +13,7 @@ from material import Span6
 from material import Span8
 from material import Span4
 
+from vitrinebela.accounts.models import User
 from vitrinebela.bookings.models import Booking
 
 

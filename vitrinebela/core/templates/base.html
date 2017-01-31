@@ -33,9 +33,16 @@
 	        <ul class="sidebar-nav">
 	            <li>
 	            	<div id="info-user-menu">
+                      {% if user.is_authenticated %}
+                          <img src="{{ user.image.url }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+                          <h6 class="white-text user-name-menu center user-name-menu">{{ user }}</h6>
+                      {% else %}
                         <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+                      {% endif %}
+
+{#                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">#}
 {#	            		<img src="static/materialize/img/joao.png" class="circle center" alt="" id="perfil-sidebar">#}
-	            		<h6 class="white-text user-name-menu center user-name-menu">Gabriel Senna</h6>
+{#	            		<h6 class="white-text user-name-menu center user-name-menu">{{ user }}</h6>#}
 	            	</div>
 	            </li>
 	            <li class="collection-item search-component">
@@ -72,12 +79,21 @@
 	            			</a>
 	            		</li>
 	            		<li>
-	            			<a href="#">
-	            				<span>
-	            					Logout
-	            				</span>
-	            				<i class="material-icons right">keyboard_tab</i>
-	            			</a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'logout' %}">
+                                    <span>
+                                        Logout
+                                    </span>
+                                    <i class="material-icons right">keyboard_tab</i>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'login' %}">
+                                    <span>
+                                        Login
+                                    </span>
+                                    <i class="material-icons right">keyboard_tab</i>
+                                </a>
+                            {% endif %}
 	            		</li>
 	            	</ul>
 	            </li>
@@ -120,9 +136,15 @@
 		        	</li>
 		          	<li>
 		          		<a href="#" class="match-parent dropdown-button" data-activates="dropdown-user">
-                            <img src="{% static 'materialize/img/joao.png' %}" class="mini-perfil circle img-responsive" alt="Perfil">
-{#		          			<img src="static/materialize/img/joao.png" alt="Perfil" class="mini-perfil circle">#}
-		          			<span class="white-color" id="profile-name">Gabriel Senna</span>
+                          {% if user.is_authenticated %}
+                              <img src="{{ user.image.url }}" class="mini-perfil circle img-responsive" alt="Perfil">
+                              <span class="white-color" id="profile-name">{{ user }}</span>
+                          {% else %}
+                              <img src="{% static 'materialize/img/joao.png' %}" class="mini-perfil circle img-responsive" alt="Perfil">
+                              <span class="white-color" id="profile-name">Login/Registro</span>
+                          {% endif %}
+
+
 		          			<i class="material-icons right">arrow_drop_down</i>
 		        		</a>
 		        		<ul class="dropdown-content" id="dropdown-user">
@@ -133,7 +155,11 @@
 		        				<a href="#">Configurações</a>
 		        			</li>
 		        			<li>
-		        				<a href="#">Logout</a>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'logout' %}">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'login' %}">Login</a>
+                                {% endif %}
 		        			</li>
 		        		</ul>
 		          	</li>
@@ -221,32 +247,57 @@
 			<h5>Suas mensagens</h5>
 			<ul class="collection">
 				<li class="collection-item avatar">
-					<img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
-					<strong>José</strong>
+
+                      {% if user.is_authenticated %}
+                          <img src="{{ user.image.url }}" class="img-msg circle" alt="">
+                      {% else %}
+                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                      {% endif %}
+
+					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Fala aí, cara! Fala comigo!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
-					<img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
-					<strong>José</strong>
-					<p class="light">Fala aí, cara! Fala comigo!</p>
+
+                      {% if user.is_authenticated %}
+                          <img src="{{ user.image.url }}" class="img-msg circle" alt="">
+                      {% else %}
+                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                      {% endif %}
+
+					<strong>Giucipe.Fortaleza</strong>
+					<p class="light">Seu CRM ta atrazado! Não pode!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
-					<img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
-					<strong>José</strong>
-					<p class="light">Fala aí, cara! Fala comigo!</p>
+
+                      {% if user.is_authenticated %}
+                          <img src="{{ user.image.url }}" class="img-msg circle" alt="">
+                      {% else %}
+                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                      {% endif %}
+
+					<strong>Giucipe.Fortaleza</strong>
+					<p class="light">Cara, só faltou a sua ficha de visita! Perdemos pontos!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
-					<img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
-					<strong>José</strong>
+
+                      {% if user.is_authenticated %}
+                          <img src="{{ user.image.url }}" class="img-msg circle" alt="">
+                      {% else %}
+                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                      {% endif %}
+
+					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Fala aí, cara! Fala comigo!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 			</ul>
 		</div>
 	</div>
+
 
 {% block js %}
     <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>

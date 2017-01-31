@@ -151,4 +151,4 @@ DEFAULT_FROM_EMAIL = 'eitaporra@ahhbaitola.com' #<<<=== este é o from (Quem env
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/'
-AUTH_USER_MODEL = 'vitrinebela.accounts.User',
+AUTH_USER_MODEL = 'accounts.User'
