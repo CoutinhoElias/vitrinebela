@@ -45,6 +45,12 @@
 	width: 100%;
 }
 
+
+#card-radius{
+    border-radius: 20px;
+    margin-top:6em
+}
+
 .add-btn-flt{
 	position: relative;
 	top: -18px;

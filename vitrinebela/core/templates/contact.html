@@ -7,52 +7,13 @@
 {% endblock %}
 
 
-
-
-
 {% block css %}
         <style type="text/css">
-        nav{
-            background-color: #2c3e50;
-        }
-        .btn{
-            background-color: #2c3e50;
-            border-radius: 10px;
-        }
-
-        footer.page-footer {
-            background-color: #2c3e50;
-        }
-
-        .footer-copyright{
-            background-color: #2c3e50;
-        }
-
-        .card{
-            border-radius: 20px;
-            margin-top:5em
-        }
-
         body {
             background: #eee;
             display: flex;
             min-height: 100vh;
             flex-direction: column;
-
-      }
-
-        main {
-            flex: 1 0 auto;
-        }
-
-        img {
-            float:left;
-            margin:0 20px 10px 0;
-        }
-
-        #calendar {
-            max-width: 900px;
-            margin: 0 auto;
         }
     </style>
 {% endblock %}
@@ -69,7 +30,7 @@
 <div class="container expand-on-small-only">
     <div class="row valign change-form">
         <div class="m8 offset-m2 l8 offset-l2">
-            <div class="card">
+            <div class="card" id="card-radius">
             <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
 
                 <div class="card-content">
