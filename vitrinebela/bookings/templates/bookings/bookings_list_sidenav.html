@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Django E-comerce {% endblock %}</title>
+
+
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            top:0;
+            left: 0;
+            background-color: #2c3e50;
+            position: fixed;
+        }
+
+        .menu-icon{
+            position: fixed;
+            font-size: 25px;
+            font-weght: bold;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: #fff;
+            cursor: pointer;
+            transition: all .2s;
+            left: 5px;
+            top: 0;
+        }
+
+        .menu-icon:hover{
+            background-color: #fff;
+            color: #5b859a;
+        }
+
+        #chk{
+            display: none;
+        }
+
+        .menu{
+            height: 100%;
+            position: fixed;
+            background-color: #222;
+            top: 0;
+            overflow: hidden;
+            transition: all .2s;
+        }
+
+        #principal{
+            width: 300px;
+            left: -300px;
+        }
+
+        #chk:checked ~.bg{
+{#            display: block;#}
+        }
+
+        #chk:checked ~.menu-icon{
+            left: 300px;
+        }
+
+        #chk:checked ~ #principal{
+            transform: translateX(300px);
+        }
+
+        .bg{
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            position: fixed;
+            background-color: rgba(0,0,0,.6);
+            display: none;
+        }
+
+        .fechar{
+
+            background-color: #111;
+            border-left: solid 5px #444;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body{
+            background-color:#e8e8e8;
+            }
+{#        POSICAO DA NAV#}
+        nav{
+            width:400px;
+            height:auto;
+            font-family:'Open Sans',sans-serif ;
+            margin: 4px auto;
+            overflow:hidden;
+            }
+
+        .item input{
+            display:none;
+            }
+        .item  label{
+            display:block;
+            padding:10px;
+            background-color:#434343;
+            font-size:20px;
+            color:#fff;
+            cursor:pointer;
+            border-bottom:solid 2px #aaa;
+            }
+
+        .item label span{
+            padding-left:240px;
+            transform:rotateX(45deg);
+            }
+        .item label:hover{
+            background-color:#f2673a;
+            }
+
+        .item ul{
+            overflow:hidden;
+            max-height:0;
+            transition: all .4s;
+            background-color:#fff;
+            width:100%;
+            }
+        .item ul li a{
+            width:100%;
+            height: 20px;
+            background-color:#fafafa;
+            display:block;
+            text-decoration:none;
+            color: #333;
+            border-bottom: 2px solid #aaa;
+            padding: 10px;
+            }
+
+        .item ul li a:hover{
+            background-color:#9CF;
+            }
+
+
+        .item input:checked ~ ul{
+            height:auto;
+            max-height:200px;
+            transition: all .4s linear;
+            }
+
+        .item input:checked ~ label span{
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <input type="checkbox" id="chk">
+
+    <label for="chk" class="menu-icon">&#9776;</label>
+
+    <div class="bg"></div>
+
+        <nav class="menu" id="principal">
+
+            <div class="item">
+                <input type="checkbox" id="check1">
+                <label for="check1">Cadastro</label>
+
+                <ul>
+                        <li><a href="{% url 'contact' %}">Contato</a> </li>
+
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}">Sair</a> </li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Entrar</a> </li>
+                        {% endif %}
+
+                        <li><a href="{% url 'register' %}">Registro</a> </li>
+                </ul>
+            </div>
+
+
+            <div class="item">
+                <input type="checkbox" id="check2">
+                <label for="check2">Categorias</label>
+
+                <ul>
+                    {% for category in categories %}
+                        <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <div class="item">
+                <input type="checkbox" id="check3">
+                <label for="check3">Material</label>
+
+                <ul>
+                    <li><a href="#">Livro Java</a> </li>
+                    <li><a href="#">Livro Python</a> </li>
+                    <li><a href="#">Livro Angular 2</a> </li>
+                    <li><a href="#">Livro Angular 3</a> </li>
+                    <li><a href="#">Livro Angular 4</a> </li>
+                    <li><a href="#">Livro Angular 5</a> </li>
+                    <li><a href="#">Livro Angular 6</a> </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    <main>
+        <div class="container">
+             {% block container %}
+
+             {% endblock %}
+        </div>
+    </main>
+
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+
+</body>
+</html>

@@ -8,21 +8,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %} Django E-comerce {% endblock %}</title>
 
-{% block css %}
+
+{% block js_person %}
 
 {% endblock %}
 
+
+
+{% block css_person %}
+
+{% endblock %}
+
+{% block css %}
     <link href="{% static 'material/fonts/material-design-icons/material-icons.css' %}" rel="stylesheet">
 
     <link href="{% static 'material/css/materialize.css' %}" rel="stylesheet">
     <link href="{% static 'material/css/materialize.forms.css' %}" rel="stylesheet">
     <link href="{% static 'material/css/jquery.datetimepicker.css' %}" rel="stylesheet">
 
-{#    <link rel="stylesheet" href="{% static 'materialize/css/icons.css' %}">#}
-{#    <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">#}
     <link rel="stylesheet" href="{% static 'materialize/css/style.css' %}">
 
     {% include 'material/includes/material_js.html' %}
+{% endblock %}
+
+
 
 </head>
 <body>
@@ -118,7 +127,7 @@
 	            	</a>
 	            	<ul class="child-menu blue-grey darken-3">
 	            		<li>
-	            			<a href="#">
+	            			<a href="{% url "booking:scheduling" %}">
 	            				<span>
 	            					Agendamento
 	            				</span>
@@ -126,7 +135,7 @@
 	            			</a>
 	            		</li>
 	            		<li>
-	            			<a href="#">
+	            			<a href="{% url "booking:list" %}">
 	            				<span>
 	            					Listagem
 	            				</span>
@@ -169,7 +178,7 @@
 		       			<a href="javascript:void(0)" id="btn-sidebar"><i class="material-icons tiny">dehaze</i></a>
 		       		</li>
 		        	<li>
-		        		<a href="#" id="logo-header">CURSO MATERIALIZE</a>
+		        		<a href="#" id="logo-header">VITRINE BELA</a>
 		        	</li>
 		        </ul>
 		        <ul class="right hide-on-med-and-down">
@@ -280,7 +289,7 @@
 		<div class="footer-copyright blue darken-1">
 			<div class="container">
 				<h6 class="center" style="margin-top:16px;">
-					&copy;Programador Honesto - Todos os direitos reservados.
+					&copy;Vitrine Bela - Todos os direitos reservados.
 				</h6>
 			</div>
 		</div>
