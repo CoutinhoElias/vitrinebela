@@ -87,9 +87,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
 	border-bottom: 1px solid #42a5f5 !important;
 }
 
-.page-footer{
-	margin-top: 0 !important;
-}
+/*.page-footer{*/
+	/*margin-top: 0 !important;*/
+/*}*/
 
 #redes-sociais li{
 	width: 40px;
@@ -243,15 +243,4 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 
-.row .col.m6 {
-    width: 45% !important;
-
-    /*transform:rotate(90deg); gira para qualquer angulo*/
-
-}
-
-.selector-chooser{
-    width: 10% !important;
-
-}
 

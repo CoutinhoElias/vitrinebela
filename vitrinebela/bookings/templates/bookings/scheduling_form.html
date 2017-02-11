@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block css_person %}
-        <style type="text/css">
+    <style type="text/css">
         body {
             background: #eee;
             display: flex;
@@ -15,111 +15,38 @@
             flex-direction: column;
         }
 
-{#        .related-widget-wrapper label.related-widget-label{#}
-{#            font-size:15px;#}
-{#            color:#000;#}
-{#            font-weight:200}#}
 
+        .row .col.m6 {
+            width: 45% !important;
 
-{#        .change-form .related-widget-wrapper .related-widget-wrapper-link{#}
-{#            opacity:.3}#}
+            /*transform:rotate(90deg); gira para qualquer angulo*/
 
+        }
 
-{#        .change-form .related-widget-wrapper .related-widget-wrapper-link:link{opacity:1}#}
+        .selector-chooser{
+            width: 10% !important;
 
+        }
 
-{#        .change-form .multiselect .selector-chooser{#}
-{#            text-align:center#}
-{#        }#}
+{#        CAMPOS SELETORES        #}
+        .change-form,
+        .selector-chosen select{
+            height:120px
+        }
 
+        .change-form,
+        .selector-available select{
+            height:120px
+        }
 
-{#        .change-form .multiselect .selector-chooser li{#}
-{#            margin-bottom:5px#}
-{#        }#}
-{##}
-{##}
-{#        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{#}
-{#            background-color:#80c883#}
-{#        }#}
-{##}
-{##}
-{#        @media only screen and (min-width:601px){#}
-{#            .change-form .multiselect{#}
-{#                margin-bottom:40px#}
-{#            }#}
-{#        }#}
-{##}
-{##}
-{#        .change-form .multiselect hr{#}
-{#            color:#eee;#}
-{#            background-color:#eee;#}
-{#            height:1px;border:none#}
-{#        }#}
-{##}
-{#        .change-form .multiselect .selector-available{#}
-{#            width:calc(50% - 30px);width:-moz-calc(50% - 30px)#}
-{#        }#}
+        /*SE REMOVER OCULTA OS BOTOES*/
+        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{
+            background-color:#80c883
+        }
 
-{##}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-available input,#}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chosen input{#}
-{#            margin-bottom:0#}
-{#        }#}
-{##}
-{##}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-available select{#}
-{#            height:120px#}
-{#        }#}
-
-
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chooser{#}
-{#            width:60px;#}
-{#            padding-top:40px#}
-{#        }#}
-
-
-{#        .change-form .multiselect,#}
-{#        .selector-chosen{#}
-{#            width:calc(50% - 30px);#}
-{#            width:-moz-calc(50% - 30px)#}
-{#        }#}
-
-
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chosen select{#}
-{#            height:120px#}
-{#        }#}
-
-
-{#        @media only screen and (max-width:600px){#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-available select{height:120px}#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser li{#}
-{#                display:inline#}
-{#            }#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser,#}
-{#            .selector-add i,#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser,#}
-{#            .selector-remove i{#}
-{#                transform:rotate(90deg);#}
-{#                position:relative;#}
-{#                top:10px;}}#}
+    .page-footer{
+        margin-top: 550px !important;
+    }
 
     </style>
 {% endblock %}
@@ -176,16 +103,13 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
 }
 </script>
 
-
-
 {% endblock %}
 
+
+
 {% block js %}
-        <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
-{#    <script src="{% static 'materialize/js/jquery-3.1.1.min.js' %}"></script>#}
+    <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
     <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
-
-
 
     <script src="{% static 'material/js/jquery.datetimepicker.js' %}"></script>
     <script src="{% static 'material/js/jquery.formset.js' %}"></script>
