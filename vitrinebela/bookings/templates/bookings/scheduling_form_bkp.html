@@ -14,112 +14,136 @@
             min-height: 100vh;
             flex-direction: column;
         }
+    </style>
+{% endblock %}
 
-{#        .related-widget-wrapper label.related-widget-label{#}
-{#            font-size:15px;#}
-{#            color:#000;#}
-{#            font-weight:200}#}
+{% block css_person %}
+   <style type="text/css">
 
+        nav{
+            background-color: #2c3e50;
+        }
+        .btn{
+            background-color: #2c3e50;
+            border-radius: 10px;
+        }
 
-{#        .change-form .related-widget-wrapper .related-widget-wrapper-link{#}
-{#            opacity:.3}#}
+        footer.page-footer {
+            background-color: #2c3e50;
+        }
 
+        .footer-copyright{
+            background-color: #2c3e50;
+        }
 
-{#        .change-form .related-widget-wrapper .related-widget-wrapper-link:link{opacity:1}#}
+        .card{
+            border-radius: 20px;
+            margin-top:0.5em;
+            margin-bottom:-1em;
+        }
 
+        body {
+            background: #eee;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
 
-{#        .change-form .multiselect .selector-chooser{#}
-{#            text-align:center#}
-{#        }#}
+      }
 
+        main {
+            flex: 1 0 auto;
+        }
 
-{#        .change-form .multiselect .selector-chooser li{#}
-{#            margin-bottom:5px#}
-{#        }#}
-{##}
-{##}
-{#        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{#}
-{#            background-color:#80c883#}
-{#        }#}
-{##}
-{##}
-{#        @media only screen and (min-width:601px){#}
-{#            .change-form .multiselect{#}
-{#                margin-bottom:40px#}
-{#            }#}
-{#        }#}
-{##}
-{##}
-{#        .change-form .multiselect hr{#}
-{#            color:#eee;#}
-{#            background-color:#eee;#}
-{#            height:1px;border:none#}
-{#        }#}
-{##}
-{#        .change-form .multiselect .selector-available{#}
-{#            width:calc(50% - 30px);width:-moz-calc(50% - 30px)#}
-{#        }#}
+        img {
+            float:left;
+            margin:0 20px 10px 0;
+        }
 
-{##}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-available input,#}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chosen input{#}
-{#            margin-bottom:0#}
-{#        }#}
-{##}
-{##}
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-available select{#}
-{#            height:120px#}
-{#        }#}
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
 
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chooser{#}
-{#            width:60px;#}
-{#            padding-top:40px#}
-{#        }#}
 
-
-{#        .change-form .multiselect,#}
-{#        .selector-chosen{#}
-{#            width:calc(50% - 30px);#}
-{#            width:-moz-calc(50% - 30px)#}
-{#        }#}
-
-
-{#        .change-form,#}
-{#        .multiselect,#}
-{#        .selector-chosen select{#}
-{#            height:120px#}
-{#        }#}
-
-
-{#        @media only screen and (max-width:600px){#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-available select{height:120px}#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser li{#}
-{#                display:inline#}
-{#            }#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser,#}
-{#            .selector-add i,#}
-{#            .change-form,#}
-{#            .multiselect,#}
-{#            .selector-chooser,#}
-{#            .selector-remove i{#}
-{#                transform:rotate(90deg);#}
-{#                position:relative;#}
-{#                top:10px;}}#}
+        .related-widget-wrapper label.related-widget-label{
+            font-size:15px;
+            color:#000;
+            font-weight:200}
+        .change-form .related-widget-wrapper .related-widget-wrapper-link{
+            opacity:.3}
+        .change-form .related-widget-wrapper .related-widget-wrapper-link:link{opacity:1}
+        .change-form .multiselect .selector-chooser{
+            text-align:center
+        }
+        .change-form .multiselect .selector-chooser li{
+            margin-bottom:5px
+        }
+        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{
+            background-color:#80c883
+        }
+        @media only screen and (min-width:601px){
+            .change-form .multiselect{
+                margin-bottom:40px
+            }
+        }
+        .change-form .multiselect hr{
+            color:#eee;
+            background-color:#eee;
+            height:1px;border:none
+        }
+        .change-form .multiselect .selector-available{
+            width:calc(50% - 30px);width:-moz-calc(50% - 30px)
+        }
+        .change-form
+        .multiselect
+        .selector-available input,
+        .change-form
+        .multiselect
+        .selector-chosen input{
+            margin-bottom:0
+        }
+        .change-form
+        .multiselect
+        .selector-available select{
+            height:120px
+        }
+        .change-form
+        .multiselect
+        .selector-chooser{
+            width:60px;
+            padding-top:40px
+        }
+        .change-form .multiselect
+        .selector-chosen{
+            width:calc(50% - 30px);
+            width:-moz-calc(50% - 30px)
+        }
+        .change-form
+        .multiselect
+        .selector-chosen select{
+            height:120px
+        }
+        @media only screen and (max-width:600px){
+            .change-form
+            .multiselect
+            .selector-available select{height:120px}
+            .change-form
+            .multiselect
+            .selector-chooser li{
+                display:inline
+            }
+            .change-form
+            .multiselect
+            .selector-chooser
+            .selector-add i,
+            .change-form
+            .multiselect
+            .selector-chooser
+            .selector-remove i{
+                transform:rotate(90deg);
+                position:relative;
+                top:10px;}
 
     </style>
 {% endblock %}

@@ -214,7 +214,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 	line-height: 3.1;
 	width: 100%;
 	display: block;
-	
+
 }
 
 .search-field{
@@ -241,3 +241,17 @@ textarea.materialize-textarea:focus:not([readonly]) {
 	display: none;
 	border-top: 1px #222 solid;
 }
+
+
+.row .col.m6 {
+    width: 45% !important;
+
+    /*transform:rotate(90deg); gira para qualquer angulo*/
+
+}
+
+.selector-chooser{
+    width: 10% !important;
+
+}
+
