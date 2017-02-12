@@ -3,9 +3,8 @@
 {% load material_form %}
 
 {% block title %}
-    Contato | {{ block.super }}
+     Agendamento | {{ block.super }}
 {% endblock %}
-
 
 {% block css_person %}
     <style type="text/css">
@@ -45,11 +44,6 @@
             background-color:#80c883
         }
 
-        .card .card-content {
-            margin-top: 0px !important;
-
-        }
-
 {#        ESTA PORRA DA CERTO NO CHROME MAS NO FIREFOX NÃO#}
         .page-footer{
             margin-top: 550px !important;
@@ -60,37 +54,33 @@
 {% endblock %}
 
 
+
 {% block container %}
 
-{#{%  if success %}#}
-{#    <div class="alert-success">#}
-{#        Mensagem enviada com sucesso!#}
-{#    </div>#}
-{#{% endif %}#}
-
-<script>
-    // Use same django for material and django admin
-    var django = django || {};
-    django.jQuery = jQuery.noConflict(true);
-    window.jQuery = window.$ = django.jQuery
-</script>
-<script src="{% static 'adm/jsi18n.js' %}"></script>
-<script src="{% static 'adm/js/core.js' %}"></script>
-<script src="{% static 'adm/js/jquery.min.js' %}"></script>
-<script src="{% static 'adm/js/jquery.init.js' %}"></script>
-<script src="{% static 'adm/js/adm/RelatedObjectLookups.js' %}"></script>
-<script src="{% static 'adm/js/actions.min.js' %}"></script>
-<script src="{% static 'adm/js/SelectBox.js' %}"></script>
-<script src="{% static 'adm/js/SelectFilter2.js' %}"></script>
-<script src="{% static 'adm/js/related-widget-wrapper.js' %}"></script>
+    <script>
+        // Use same django for material and django admin
+        var django = django || {};
+        django.jQuery = jQuery.noConflict(true);
+        window.jQuery = window.$ = django.jQuery
+    </script>
+    <script src="{% static 'adm/jsi18n.js' %}"></script>
+    <script src="{% static 'adm/js/core.js' %}"></script>
+    <script src="{% static 'adm/js/jquery.min.js' %}"></script>
+    <script src="{% static 'adm/js/jquery.init.js' %}"></script>
+    <script src="{% static 'adm/js/adm/RelatedObjectLookups.js' %}"></script>
+    <script src="{% static 'adm/js/actions.min.js' %}"></script>
+    <script src="{% static 'adm/js/SelectBox.js' %}"></script>
+    <script src="{% static 'adm/js/SelectFilter2.js' %}"></script>
+    <script src="{% static 'adm/js/related-widget-wrapper.js' %}"></script>
 
 <div class="container expand-on-small-only">
     <div class="row valign change-form">
         <div class="m8 offset-m2 l8 offset-l2">
-            <div class="card" id="card-radius">
-            <form method="POST" enctype="multipart/form-data" class="viewform">{% csrf_token %}
+            <div class="card">
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
 
                 <div class="card-content">
+
                     {% form %}
 
                     {% endform %}
@@ -98,7 +88,7 @@
 
                 <div class="card-action">
                     <div class="right-align">
-                        <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+                        <button class="waves-effect waves-light btn" type="submit">Lançar</button>
                     </div>
                 </div>
             </form>
@@ -116,6 +106,8 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
 </script>
 
 {% endblock %}
+
+
 
 {% block js %}
     <script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
