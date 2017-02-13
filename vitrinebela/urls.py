@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^contato/$', views.contact, name='contact'),
     url(r'^catalogo/', include('vitrinebela.catalog.urls', namespace='catalog')),
 
-    url(r'^registro/$', views.register, name='register'),
+    url(r'^conta/', include('vitrinebela.accounts.urls', namespace='accounts')),
+
     url(r'^login/$', login, {'template_name': 'login.html'},name='login'),
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
 

@@ -12,16 +12,16 @@
         body {
             background: #eee;
             display: flex;
+            position: relative;
             min-height: 100vh;
             flex-direction: column;
+
         }
 
 
         .row .col.m6 {
             width: 45% !important;
-
             /*transform:rotate(90deg); gira para qualquer angulo*/
-
         }
 
         .selector-chooser{
@@ -30,18 +30,17 @@
         }
 
 {#        CAMPOS SELETORES        #}
-        .change-form,
+
         .selector-chosen select{
             height:120px
         }
 
-        .change-form,
         .selector-available select{
             height:120px
         }
 
         /*SE REMOVER OCULTA OS BOTOES*/
-        .change-form .multiselect .selector-add,.change-form .multiselect .selector-remove{
+        .change-form  .selector-add,.change-form .multiselect .selector-remove{
             background-color:#80c883
         }
 
@@ -50,10 +49,9 @@
 
         }
 
-{#        ESTA PORRA DA CERTO NO CHROME MAS NO FIREFOX NÃO#}
-        .page-footer{
-            margin-top: 550px !important;
-        }
+{#        .container{#}
+{#            height: 800px;#}
+{#        }#}
 
 
     </style>
