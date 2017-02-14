@@ -46,7 +46,9 @@
                           <img src="{{ user.image.url }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
                           <h6 class="white-text user-name-menu center user-name-menu">{{ user }}</h6>
                       {% else %}
-                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+{#                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">#}
+                          <img src="/media/img/joao.png" class="circle center img-responsive" alt="" id="perfil-sidebar">
+
                       {% endif %}
 
 {#                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">#}
@@ -194,7 +196,9 @@
                               <img src="{{ user.image.url }}" class="mini-perfil circle img-responsive" alt="Perfil">
                               <span class="white-color" id="profile-name">{{ user }}</span>
                           {% else %}
-                              <img src="{% static 'materialize/img/joao.png' %}" class="mini-perfil circle img-responsive" alt="Perfil">
+{#                              <img src="{% static 'materialize/img/joao.png' %}" class="mini-perfil circle img-responsive" alt="Perfil">#}
+                              <img src="/media/img/joao.png" class="mini-perfil circle img-responsive" alt="Perfil">
+
                               <span class="white-color" id="profile-name">Login/Registro</span>
                           {% endif %}
 
@@ -262,22 +266,26 @@
 							<ul id="redes-sociais">
 								<li>
 									<a href="javascript:void(0)">
-                                        <img src="{% static 'materialize/img/youtube.png' %}" class="responsive-img img-responsive" alt="">
+{#                                        <img src="{% static 'materialize/img/youtube.png' %}" class="responsive-img img-responsive" alt="">#}
+                                        <img src="/media/img/youtube.png" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-                                        <img src="{% static 'materialize/img/facebook.png' %}" class="responsive-img img-responsive" alt="">
+{#                                        <img src="{% static 'materialize/img/facebook.png' %}" class="responsive-img img-responsive" alt="">#}
+                                        <img src="/media/img/facebook.png" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-                                        <img src="{% static 'materialize/img/twitter.png' %}" class="responsive-img img-responsive" alt="">
+{#                                        <img src="{% static 'materialize/img/twitter.png' %}" class="responsive-img img-responsive" alt="">#}
+                                        <img src="/media/img/twitter.png" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)">
-                                        <img src="{% static 'materialize/img/instagram.png' %}" class="responsive-img img-responsive" alt="">
+{#                                        <img src="{% static 'materialize/img/instagram.png' %}" class="responsive-img img-responsive" alt="">#}
+                                        <img src="/media/img/instagram.png" class="responsive-img img-responsive" alt="">
 									</a>
 								</li>
 							</ul>
@@ -305,7 +313,7 @@
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
                       {% else %}
-                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                        <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
 					<strong>Giucipe.Fortaleza</strong>
@@ -317,7 +325,7 @@
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
                       {% else %}
-                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                        <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
 					<strong>Giucipe.Fortaleza</strong>
@@ -329,7 +337,7 @@
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
                       {% else %}
-                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                        <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
 					<strong>Giucipe.Fortaleza</strong>
@@ -341,7 +349,7 @@
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
                       {% else %}
-                        <img src="static/materialize/img/joao.png" alt="" class="img-msg circle">
+                        <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
 					<strong>Giucipe.Fortaleza</strong>
