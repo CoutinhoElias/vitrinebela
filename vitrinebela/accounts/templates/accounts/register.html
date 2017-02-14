@@ -28,9 +28,10 @@
             <form method="POST" enctype="multipart/form-data">{% csrf_token %}
 
                 <div class="card-content">
-                    <span class="card-title grey-text text-darken-2">Login</span>
+                    <span class="card-title grey-text text-darken-2">Registro</span>
                     {% form %}
                         {% part form.username prefix %}<i class="material-icons prefix">account_box</i>{% endpart %}
+                        {% part form.email prefix %}<label for="id_email"></label><i class="material-icons prefix">email</i>{% endpart %}
                         {% part form.password1 prefix %}<i class="material-icons prefix">lock</i>{% endpart %}
                         {% part form.password2 prefix %}<i class="material-icons prefix">lock</i>{% endpart %}
                     {% endform %}
