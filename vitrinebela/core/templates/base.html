@@ -42,13 +42,16 @@
 	        <ul class="sidebar-nav">
 	            <li>
 	            	<div id="info-user-menu">
+                          <img src="{{ USER_IMAGE_URL }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
                       {% if user.is_authenticated %}
-                          <img src="{{ user.image.url }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
                           <h6 class="white-text user-name-menu center user-name-menu">{{ user }}</h6>
+<<<<<<< HEAD
                       {% else %}
 {#                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">#}
                           <img src="/media/img/joao.png" class="circle center img-responsive" alt="" id="perfil-sidebar">
 
+=======
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
                       {% endif %}
 
 {#                        <img src="{% static 'materialize/img/joao.png' %}" class="circle center img-responsive" alt="" id="perfil-sidebar">#}
@@ -192,6 +195,7 @@
 		        	</li>
 		          	<li>
 		          		<a href="#" class="match-parent dropdown-button" data-activates="dropdown-user">
+<<<<<<< HEAD
                           {% if user.is_authenticated %}
                               <img src="{{ user.image.url }}" class="mini-perfil circle img-responsive" alt="Perfil">
                               <span class="white-color" id="profile-name">{{ user }}</span>
@@ -201,6 +205,10 @@
 
                               <span class="white-color" id="profile-name">Login/Registro</span>
                           {% endif %}
+=======
+                          <img src="{{ USER_IMAGE_URL }}" class="mini-perfil circle img-responsive" alt="Perfil">
+                          <span class="white-color" id="profile-name">{% if user.is_authenticated %}{{ user }}{% else %}Login/Registro{% endif %}</span>
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
 
 
 		          			<i class="material-icons right">arrow_drop_down</i>
@@ -310,17 +318,22 @@
 			<ul class="collection">
 				<li class="collection-item avatar">
 
+<<<<<<< HEAD
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
                       {% else %}
                         <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
+=======
+                          <img src="{{ USER_IMAGE_URL }}" class="img-msg circle" alt="">                      
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
 
 					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Fala aí, cara! Fala comigo!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
+<<<<<<< HEAD
 
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
@@ -328,11 +341,15 @@
                         <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
+=======
+                                        <img src="{{ USER_IMAGE_URL }}" class="img-msg circle" alt="">
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
 					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Seu CRM ta atrazado! Não pode!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
+<<<<<<< HEAD
 
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
@@ -340,11 +357,15 @@
                         <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
+=======
+                                        <img src="{{ USER_IMAGE_URL }}" class="img-msg circle" alt="">
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
 					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Cara, só faltou a sua ficha de visita! Perdemos pontos!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>
 				</li>
 				<li class="collection-item avatar">
+<<<<<<< HEAD
 
                       {% if user.is_authenticated %}
                           <img src="{{ user.image.url }}" class="img-msg circle" alt="">
@@ -352,6 +373,9 @@
                         <img src="/media/img/joao.png" alt="" class="img-msg circle">
                       {% endif %}
 
+=======
+                                        <img src="{{ USER_IMAGE_URL }}" class="img-msg circle" alt="">
+>>>>>>> fec277c97286fb62de1f7727e5d81a9e09f9a3a3
 					<strong>Giucipe.Fortaleza</strong>
 					<p class="light">Fala aí, cara! Fala comigo!</p>
 					<a href="#" class="secondary-content"><i class="material-icons red-text text-lighten-2">delete</i></a>

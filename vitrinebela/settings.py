@@ -78,6 +78,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 #apps
                 'vitrinebela.catalog.context_processors.categories',
+                'vitrinebela.accounts.context_processors.user_image_url',
             ],
         },
     },
