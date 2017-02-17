@@ -15,10 +15,11 @@ class UserAdminCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email','image']
     layout = Layout(
         Span6('username'), Span6('email'),
-        Row(Span6('password1'), Span6('password2')))
+        Row(Span6('password1'), Span6('password2')),
+        Span6('image'))
 
 
 class UserAdminForm(forms.ModelForm):
