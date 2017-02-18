@@ -1,1 +1,1 @@
-web: gunicorn vitrinebela.wsgi --log-file -
+web: gunicorn vitrinebela.wsgi --timeout 15 --log-file -
