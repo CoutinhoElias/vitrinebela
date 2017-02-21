@@ -20,7 +20,6 @@ olefile==0.44
 pexpect==4.2.1
 pickleshare==0.7.4
 Pillow==4.0.0
-pkg-resources==0.0.0
 prompt-toolkit==1.0.7
 ptyprocess==0.5.1
 pyaml==15.8.2
