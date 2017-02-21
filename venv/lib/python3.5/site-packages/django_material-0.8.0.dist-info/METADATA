@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: django-material
+Version: 0.8.0
+Summary: Material design for django forms and admin
+Home-page: http://github.com/viewflow/django-material
+Author: Mikhail Podgurskiy
+Author-email: kmmbvnr@gmail.com
+License: BSD
+Keywords: django
+Platform: any
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: User Interfaces
+
+UNKNOWN
+
+
