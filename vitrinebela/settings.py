@@ -48,9 +48,11 @@ INSTALLED_APPS = [
     'vitrinebela.core',
     'vitrinebela.catalog',
     'vitrinebela.accounts',
+    'vitrinebela.bookings.apps.BookingsConfig',
 
     'rest_framework',
-    'vitrinebela.bookings.apps.BookingsConfig',
+    'easy_thumbnails',
+
 ]
 
 MIDDLEWARE = [
@@ -146,7 +148,7 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = 'eitaporra@ahhbaitola.com' #<<<=== este é o from (Quem envia)
+DEFAULT_FROM_EMAIL = 'voceenviou@gmail.com' #<<<=== este é o from (Quem envia)
 
 #Auth
 LOGIN_URL = '/login/'
@@ -157,3 +159,35 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'vitrinebela.accounts.backends.ModelBackend',
 )
+
+
+# AWS
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+
+AWS_S3_SECURE_URLS = True
+AWS_QUERYSTRING_AUTH = False
+AWS_PRELOAD_METADATA = True
+AWS_ACCESS_KEY_ID = os.getenv('DJANGO_AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('DJANGO_AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = 'vitrinebela'
+AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_STORAGE = 'vitrinebela.s3util.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+DEFAULT_FILE_STORAGE = 'vitrinebela.s3util.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+AWS_HEADERS = {
+    'x-amz-acl': 'public-read',
+    'Cache-Control': 'public, max-age=31556926'
+}
+
+
+#Thumbnails
+THUMBNAIL_ALIASES = {
+    '': {
+        'product_image': {'size': (285, 160), 'crop': True},
+    },
+}

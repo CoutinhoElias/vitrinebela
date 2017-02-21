@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
     Listagem de Produtos | {{ block.super }}
@@ -17,7 +18,7 @@
               <div class="card">
                 <div class="card-image">
                   {% if product.image %}
-                      <img src="{{ product.image.url }}" class="img-responsive">
+                      <img src="{{ product.image|thumbnail_url:'product_image' }}" class="img-responsive">
                   {% else %}
                     <img src="http://placehold.it/350x250" alt="" />
                   {% endif %}

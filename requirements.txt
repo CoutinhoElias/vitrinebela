@@ -8,3 +8,6 @@ gunicorn==19.4.1
 psycopg2==2.6.1
 djangorestframework==3.5.3
 Pillow==4.0.0
+easy-thumbnails==2.3
+django-storages==1.5.1
+boto==2.43.0
