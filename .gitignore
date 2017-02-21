@@ -28,4 +28,6 @@ venv/lib/python3.5/site-packages/static3-0.7.0.dist-info/
 vitrinebela/__pycache__/
 __pycache__
 /vitrinebela/venv
+venv
+/venv
 /vitrinebela/local_settings.py
