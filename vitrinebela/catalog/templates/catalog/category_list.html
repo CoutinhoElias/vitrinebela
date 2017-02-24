@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load thumbnail %}
 
 {% block title %}
     {{ current_category }} | {{ block.super }}
@@ -17,7 +18,8 @@
           <div class="card">
             <div class="card-image">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="img-responsive">
+{#                    <img src="{{ product.image.url }}" class="img-responsive">#}
+                    <img src="{% thumbnail product.image 285x160 crop %}" alt="" class="img-responsive" />
                 {% else %}
                     <img src="http://placehold.it/350x250" alt="" />
                 {% endif %}

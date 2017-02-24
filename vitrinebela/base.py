@@ -163,4 +163,3 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'vitrinebela.accounts.backends.ModelBackend',
 )
-
