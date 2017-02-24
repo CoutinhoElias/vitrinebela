@@ -14,3 +14,4 @@ __pycache__
 venv
 /venv
 /vitrinebela/local_settings.py
+**/media/*
