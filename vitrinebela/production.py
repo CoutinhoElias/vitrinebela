@@ -50,6 +50,7 @@ AWS_PRELOAD_METADATA = True
 
 
 #Thumbnails
+# https://easy-thumbnails.readthedocs.io/en/2.1/ref/settings/
 # THUMBNAIL_ALIASES = {
 #     '': {
 #         'product_image': {'size': (285, 160), 'crop': True},
@@ -60,3 +61,5 @@ AWS_PRELOAD_METADATA = True
 #     },
 # }
 # THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
+THUMBNAIL_MEDIA_URL = MEDIA_URL
+THUMBNAIL_SUBDIR = 'thumbs'
