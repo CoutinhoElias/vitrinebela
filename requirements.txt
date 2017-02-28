@@ -37,3 +37,6 @@ static3==0.7.0
 task==0.1
 traitlets==4.2.2
 wcwidth==0.1.7
+django-imagekit==4.0
+django-appconf==1.0.2
+pilkit==2.0

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load thumbnail %}
+{% load imagekit %}
 
 {% block title %}
     Listagem de Produtos | {{ block.super }}
@@ -18,12 +18,12 @@
               <div class="card">
                 <div class="card-image">
                   {% if product.image %}
-{#                      <img src="{{ product.image|thumbnail_url:'product_image' }}" class="img-responsive">#}
-                    <img src="{% thumbnail product.image 285x160 crop %}" alt="" class="img-responsive" />
+                    <img src="{{ product.smart.url }}" alt="" class="img-responsive" />
                   {% else %}
-                    <img src="http://placehold.it/350x250" alt="" />
+                    <img src="http://placehold.it/285x160" alt="" class="img-responsive"/>
                   {% endif %}
-                  <span class="card-title">Creme de barbear</span>
+
+                  <span class="card-title">Incluirei um titulo aqui</span>
                 </div>
                 <div class="card-content">
                     <h5>{{ product }}</h5>

@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'vitrinebela.bookings.apps.BookingsConfig',
 
     'rest_framework',
-    'easy_thumbnails',
+    'imagekit',
 
 ]
 
