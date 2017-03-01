@@ -15,3 +15,4 @@ venv
 /venv
 /vitrinebela/local_settings.py
 **/media/*
+**/idea/*
