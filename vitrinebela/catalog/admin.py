@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from imagekit.admin import AdminThumbnail
 # Register your models here.
 from.models import Product, Category
 
@@ -10,8 +10,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'category', 'created', 'modified']
+    list_display = ['name', 'slug', 'category', 'created', 'modified','__str__', 'admin_thumbnail']
     search_fields = ['name', 'slug', 'category__name', 'created', 'modified']
+    admin_thumbnail = AdminThumbnail(image_field='smart')
 
 
 admin.site.register(Category, CategoryAdmin)
