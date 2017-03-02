@@ -67,7 +67,3 @@ AWS_PRELOAD_METADATA = True
 
 #DEFAULT_FILE_STORAGE = 'vitrinebela.production.MediaRootS3BotoStorage'
 #STATICFILES_STORAGE = 'vitrinebela.production.StaticRootS3BotoStorage'
-
-
-STATICFILES_STORAGE = 'myproject.s3utils.StaticS3BotoStorage'
-DEFAULT_FILE_STORAGE = 'myproject.s3utils.MediaS3BotoStorage'
