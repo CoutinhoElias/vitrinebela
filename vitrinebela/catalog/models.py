@@ -35,8 +35,7 @@ class Product(models.Model):
     created = models.DateTimeField('Criado em', auto_now_add=True)
     modified = models.DateTimeField('Modificado em', auto_now=True)
     image = models.ImageField('Imagem', upload_to='products/', blank=True, null=True)
-    smart = ImageSpecField(
-        source='image', processors=[SmartResize(285, 160)], format='PNG')
+    smart = ImageSpecField(source='image', processors=[SmartResize(285, 160)], format='PNG')
 
     class Meta:
         verbose_name ='Produto'

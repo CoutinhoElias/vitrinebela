@@ -4,6 +4,9 @@ from django.db import models
 from django.core import validators
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import SmartResize
+
 
 # Create your models here.
 
@@ -26,6 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField('Ativo', default=True)
     date_joined = models.DateTimeField('Data de Entrada', auto_now_add=True)
     image = models.ImageField('Opcional: Imagem do usuário', upload_to='users/', blank=True, null=True)
+    image_user = ImageSpecField(source='image', processors=[SmartResize(50, 50)], format='PNG')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
