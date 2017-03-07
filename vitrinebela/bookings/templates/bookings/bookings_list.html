@@ -1,23 +1,21 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% load material_form %}
 
-    <title>Booking</title>
+{% block title %}
+    Booking
+{% endblock %}
 
-
+{% block js_person %}
     <link rel='stylesheet' href="{%  static 'fullcalendar/fullcalendar.css'%}" />
     <script src="{%  static 'fullcalendar/lib/jquery.min.js'  %}"></script>
     <script src="{%  static 'fullcalendar/lib/moment.min.js'  %}"></script>
     <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
     <script src="{%  static 'fullcalendar/locale/pt-br.js'  %}"></script>
+{% endblock %}
 
-
-
-    <style>
+{% block css_person %}
+    <style type="text/css">
         body {
             margin: 40px 10px;
             padding: 0;
@@ -27,23 +25,38 @@
         #calendar {
             max-width: 900px;
             margin: 0 auto;
-        }
+        }      
 
     </style>
-
-  </head>
-
-
-  <body>
+{% endblock %}
 
 
-  <div id='calendar'></div>
-
+{% block container %}
+    <div id='calendar'></div>
 
     <script src="{% static 'django_csrf.js' %}"></script>
     <script src="{% static 'app.js' %}"></script>
     <script src="{% static 'bookings.js' %}"></script>
 
 
-  </body>
-</html>
+{% endblock %}
+
+{% block js %}
+
+    <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
+
+
+
+    <script src="{% static 'material/js/jquery.datetimepicker.js' %}"></script>
+    <script src="{% static 'material/js/jquery.formset.js' %}"></script>
+    <script src="{% static 'material/js/materialize.forms.js' %}"></script>
+    <script src="{% static 'materialize/js/app.js' %}"></script>
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+
+{% endblock %}

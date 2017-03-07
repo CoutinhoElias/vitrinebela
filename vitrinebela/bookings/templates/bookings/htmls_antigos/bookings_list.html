@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Booking</title>
+
+
+        <link rel='stylesheet' href="{%  static 'fullcalendar/fullcalendar.css'%}" />
+        <script src="{%  static 'fullcalendar/lib/jquery.min.js'  %}"></script>
+        <script src="{%  static 'fullcalendar/lib/moment.min.js'  %}"></script>
+        <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
+        <script src="{%  static 'fullcalendar/locale/pt-br.js'  %}"></script>
+
+
+
+        <style>
+            body {
+                margin: 40px 10px;
+                padding: 0;
+                font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+                font-size: 14px;
+            }
+            #calendar {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+        </style>
+    </head>
+
+
+  <body>
+        <div id='calendar'></div>
+
+
+        <script src="{% static 'django_csrf.js' %}"></script>
+        <script src="{% static 'app.js' %}"></script>
+        <script src="{% static 'bookings.js' %}"></script>
+  </body>
+
+</html>
