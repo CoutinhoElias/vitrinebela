@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block js_person %}
-    <link rel='stylesheet' href="{%  static 'fullcalendar/fullcalendar.css'%}" />
+    <link rel='stylesheet' href="{%  static 'fullcalendar/fullcalendar.min.css'%}" />
     <script src="{%  static 'fullcalendar/lib/jquery.min.js'  %}"></script>
     <script src="{%  static 'fullcalendar/lib/moment.min.js'  %}"></script>
     <script src="{%  static 'fullcalendar/fullcalendar.js'  %}"></script>
@@ -25,7 +25,23 @@
         #calendar {
             max-width: 900px;
             margin: 0 auto;
-        }      
+        }
+        thead {
+          border-bottom: none !important;
+        }
+
+        #calendar h2 {
+            font-size: 1.5rem;            
+            line-height: 35px;
+        }
+        
+        #calendar a {
+            color: inherit;
+        } 
+
+        #calendar .fc-toolbar {
+            margin-top: 1em;
+        }    
 
     </style>
 {% endblock %}
