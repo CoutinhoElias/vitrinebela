@@ -42,9 +42,19 @@
 			
 	        <ul class="sidebar-nav">
 	            <li>
-	            	<div id="info-user-menu">
-                          <img src="{{ USER_IMAGE_URL }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
-	            	</div>
+	                {% if user.is_authenticated %}
+		            	<div id="info-user-menu">
+	                          <img src="{{ USER_IMAGE_URL }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+	                          <h6 class="white-text center" id="user-name-sidebar">{{user}}</h6>
+		            	</div>
+	                {% else %}
+			            <a href="{% url 'login' %}">
+			            	<div id="info-user-menu">
+		                          <img src="{{ USER_IMAGE_URL }}" class="circle center img-responsive" alt="" id="perfil-sidebar">
+		                          <h6 class="white-text center" id="user-name-sidebar">Login aqui.</h6>
+			            	</div>
+			            </a>
+	                {% endif %}	            	
 	            </li>
 	            <li class="collection-item search-component">
 	            	<form action="">
@@ -184,7 +194,12 @@
 		          		<a href="#" class="match-parent dropdown-button" data-activates="dropdown-user">
 
                             <img src="{{ USER_IMAGE_URL }}" class="mini-perfil circle img-responsive" alt="Perfil">
-                            <span class="white-color" id="profile-name">{% if user.is_authenticated %}{{ user }}{% else %}Login/Registro{% endif %}</span>
+                            <span class="white-color" id="profile-name">
+	                            {% if user.is_authenticated %}
+	                            	{{ user }}
+	                            {% else %}
+	                            	Login/Registro
+	                            {% endif %}</span>
      	          			<i class="material-icons right">arrow_drop_down</i>
 		        		</a>
 		        		<ul class="dropdown-content" id="dropdown-user">
